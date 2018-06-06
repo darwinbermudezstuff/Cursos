@@ -1,3 +1,55 @@
+caracteristicas
+	Portable
+	7 puntos
+		simple
+			no punteros
+		moderno
+			garbage colection			
+		POO
+		seguridad de tipo
+		versionable
+		compatible 
+		flexible 
+
+POO
+	 Clase
+		Tipo de datos
+			Atributo 		Estado
+			Metodos 		Comportamientos (algoritmo)
+	 Atributo
+		Datos que caractriza a los objetos de una clase y determina su estado
+	 Metodos
+		Toda aquellas acciones que se hacen sobre un objeto de cierta clase
+			Encender 
+			Acelerar 
+	 Objetos		
+		Plano 			Clase
+		Edificio 		Objeto se construye apartir de la clase
+	 Instacia
+		Cuando instanciamos un objeto se crea la instancia 
+	 
+	Pilares de POO
+		Encapsulamiento
+			Es la capacidad de imposibilitar el acceso a los componenetes de los objetos 
+			Trabaja sobre las clases 
+			Este funciona mucho mejor cuando se trabajan en variables privadas
+						
+		Abstraccion
+			Es la capacidad de obtener y aislar toda la informacion y cualidades de un objeto que no nos parezcan relevantes, nos permite gestionar la complejidad  
+			----
+			
+		Herencia
+			Derivacion : claseADerivar
+				Derivar hereda todo de claseAderivar
+				
+			 
+		Polimorfismo
+			Capacidad para que varias clases u objetos derivados de otro, reaccionen de manera diferente ante los mismos metodos
+				Polomorfismo por
+					Herencia 
+					Abstraccion
+					Interface
+
 Derivar o extender son palabras sinonimas para herencia
 Para las herencias, se usa base(parametro parametros) para trabajar o usar el contructor de la clase heredada
 cuando heredamos y el contructor del padre lleva datos, se tiene que hacer lo mismo en la hija es decir crear 
@@ -50,7 +102,85 @@ Estructura de condicioanles
 	
 
 
+	Variables
+		Espacio de memoria 
+		Se puede definir como 
+			Miembro de una clase 
+			Variable Local
+			Paramtro de un metodo	
+		Las variables por refrencias se define por la palabra reservada NEW 
+		Las variables por valor son aquellas que se crean con la igual a su contenido
+		Se tiene 7 categorias 	
+			Variables estaticas 
+			Variables de instancia 
+			Variables de elementos ARRAY 
+			Variable de parametro por valor 
+			Variable de parametro de referencia
+			Variable de parametro de salida
+			Variables locales
+		Variables static o variables de clase
+		Aquellas variables que no llevan static son referenciadas como de instancia 
+		Los parametros por referencias representan la referencia a una instancia existente de un tipo  
+		Las variable ref si retornan un valor en los paramtros es la diferencia con la de parametro por valor, los ref aceptan null, una gran funcionalidad 
+		es que si estas variables fueron declaradas con ref aparte de que se tiene que agregar valor (menos con tipo out no es necesario darle un valor por defecto) 
+		no es necesario que en el metodo a llamar se tenga que retornar un valor meramente del metodo si no que este realmente ya retorna un valor es decir que si 
+		dentro del metodo este es editado en su valor este retornara el nuevo valor ahora bien es interesante que out funcione de la misma manera solamente que este 
+		antes puede tener asingado valor o no a la hora de enviarlo por el metodo instanciado.
+		
+	Propiedades:
+		Una propiedad es un componente de la clase que combina un campo con los metodos que dan acceso a el 
+		las propiedades permiten hacer validaciones sobre las asignaciones y mantener la consistencias de los datos asignados a los campos miembro o de instancia 
+		Campo -> private 
+		propiedad -> get set
+		modificador de accesos + tipo de dato + identificador;
+		Aparte de lo anterior requiere especificar un bloque de codigo encerrado entre llevas de apartura y cierre 		
+		Para entender un poco en que radica la diferencias de una propiedad y un campo es que por medio del get y set de las propiedades se puede manipualar la data es decir tengo por ejemplo la propuedad 
+			public string codigo {
+				get { return "CAFETERIA000" + _id; }	// tomando en cuenta que _id es un campo privado que ya existe
+				set { _id = int.Parce(value); } 		// Ojo lo que hace esto es mandarle el valor de codigo y se lo asigna a la variable privada de _id 
+			}
 
+		
+		Caracteristicas
+			Accede como si se tratara de un campo No como un metodo
+			Permite asociar codigo al momento de leer o escribir un campo 
+			No almacenan datos pero se utilizan como si lo hicieran 
+			
+		Descriptores de acceso  
+			Campo o varibel de clase 
+			Un campo un icono azul
+			para las propiedades un campo de llave
+			Restricciones 
+				Debe poseer al menos un descriptor de acceso
+				El descriptor de acceso puede poseer modificadores de acceso diferente 
+				el descriptor get debe poseer un return 
+				el descriptor set usa valuee como su parametro
+	Metodos 
+		un conjunto de instrucciones que realiza una tarea especifica y bien definida 
+		Los metodos solamente se escriben una vez pero pueden ser invocados en multiples ocaciones durante la ejecucion de un programa 
+			ventajas 
+				facilita la sepracion de actividades en modulos debidamente identificados 
+				organiza de maner legible y facil de entender a los programas 
+				facilita al programador la escritura de codigo 
+			Clasificacion 
+				Procedimientos
+					es un metodo que se compone de un conjunto de instrucciones para realizar un proceso, sin embargo, no devuelve algun resultado como producto de su operacion 
+					en C# los procedimientos se identifican por su declaracion de tipo void 
+					Metodo estatico
+						Un metodo estatico puede llamarse sin tener que crear un objeto dicha clase 
+						Restricciones 
+							No puede utilizar el operador THIS ya que este metodo se puede llamar sin tener que crear un objeto de la clase 
+							puede llamar a otro metodo siempre y cuando sea estatico 
+				Funciones
+					Las funciones son metodos que ejecutan un conjunto de instrucciones e informan del resultado obtenido; es decir, devuelve el dato resultante de la ejecucion
+					en C# una funcion utiliza la sentencia return() para devulver el valor corespondeinte 
+					Sobre carga de metodos 
+						La sobre carga de metodos consiste en crear mas de un procedimeinto, contructor de instancia o propiedad en una clase con el mismo nombre y distinto tipos de argumento 
+						Podemos definir varios metodos con el mismo nombre pero con distintos parametros, de forma que el compilador decide a cual se llama dependiendo de los parametros que le lleguen 
+						No tenemos que renombrar cada funcion segun el tipo de valor que acepte 
+			
+		
+		
 
 	coversion explisita  conver.toint32(11)
 	conversion implicita .tostring()
