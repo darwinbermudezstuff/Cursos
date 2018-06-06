@@ -1,0 +1,86 @@
+Derivar o extender son palabras sinonimas para herencia
+Para las herencias, se usa base(parametro parametros) para trabajar o usar el contructor de la clase heredada
+cuando heredamos y el contructor del padre lleva datos, se tiene que hacer lo mismo en la hija es decir crear 
+un contructor aunq no estoy seguro si se puede realizar una creacion de contructor vacio para que este no se le pase datos	
+
+Para un buen polimorfismo, en la clase padre se tiene que agregar la palabra reservada VIRTUAL esto genera en el codigo
+que se pueda sobre escribir, ahora bien en la clase hija que hereda todos los metodos atributos y demas, se tiene que escribir 
+overrider para que pueda realizar la funcion de sobre escribir, el ide de .net lo que realizara es poner la palabra reservada 
+base.NombreMetodoPadre(); pero como lo que realizaremos es crear un nuevo metodo se comenta y se realiza todo el codigo que 
+se necesita trabajar 
+
+UN polimorfismo es hacer que dos clases se comporten de diferente manera 
+
+
+Tipos de datos
+	valor				
+		- se dividen en simple (double, float, chart, boolean y son heredados de la clases, object), estructura, enumeracion
+		- intrinsecos enumeraciones estructura
+		- char, int, float son predefinidos por el sistema
+		- enumerable enum ; estructura struc ; predefinidos por el sistema o el programador y no puede ser nulos 
+		- Para los tipo simple existe alias para ser llamados de la clase object como, float, long, int short
+		- Struc es similar al tipo CLASS estas llevan contructor pero se guardan en pila 
+		- Enum permite utilizar un grupo de constantes a traves de nombres asociados que son representativos que dicah constante 
+
+	refernecia
+		arreglos 
+		clases
+		interface
+		punteros, delegaciones
+		- Interface es similar a un clase o una estructura con la salvedad de que todos sus miembros son abstractos es decir no estan 
+		definidos no tiene codigo, para esto primero se tiene que crear la clase con sus metodos, luego se declara una variable de tipo 
+		interface ya que esta va a ser heredero de la clase que contiene esos metodos, alli se agregan los metodos que tiene su clase que se 
+		crea nueva, interface IVolar { metodos }; class CAvion:IVolar { codigo y codigo que implementa el metodo IVolar() }
+		las interfaces esta pensadas para representar un aspecto de la realidad que a de ser implementado por una clase que herede la interface  
+
+
+Operadores logicos
+	Aritmeticos
+		simbolo que representa una accion determinadas para una variable o valor
+			binarios 
+				+-*/%
+			Unarios
+				++,--,-:
+	Operadores relacionales
+		=,!=,>,<
+	Operadores logicos
+		&&, || !
+
+Estructura de condicioanles 
+	
+
+
+
+
+	coversion explisita  conver.toint32(11)
+	conversion implicita .tostring()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
