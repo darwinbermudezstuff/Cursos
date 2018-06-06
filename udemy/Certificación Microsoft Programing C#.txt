@@ -181,36 +181,66 @@ Estructura de condicioanles
 			
 		
 		
+---------------------------------------------------------------------
 
-	coversion explisita  conver.toint32(11)
-	conversion implicita .tostring()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Modificadores de acceso 
+	Dentro del cuerpo de una clase se colocan la declaracion y definicion de todas sus miembros , que podrian ser datos y metodos 
+	Los modificadores de acceso indican el nivel de accesibilidad que tendra un miembro o un topo desde otro miembro que la referencie. Existen cuatro modificadores de acceso de C#
+		Public 
+			Es el modificador menos restrictivo. Si la varible o metodo es delcarada como publica entonces es posible acceder a su contenido desde cualquier objeto de cualquuier tipo 
+		Private 
+			Los miembros privados solo son accesible dentro de la clase en la que se definen. Solo es posible acceder a su contenido desde los metodos de la clase, pero no desde metodos de las clases derivadas 
+		Internal
+			 Este indica que aquellos miembros o tipos que se hayan definido con este modificador de acceso solo sera accesible desde los archivos del mismo ensamblado
+		Protected
+			el modificador protected indica que solo la clase en la que se ha utilizado el modificador y sus clases derivadas tendran acceso al miembro o tipo definido como protected 
+	Modificadores de miembros 
+		Abstract 
+			Se puede utilizar con clase, metodos, propiedades, indizadores y eventos 
+			Si en una clase se define miembros marcados con abstract, la clase debera marcarse como abstract
+			Las clases marcadas con abstract no se pueden instanciar 
+			Una clase no abstracta derivada de una clase abstracta debe incluir implementaciones reales de todos los descriptos de acceso y metodos abstractos heredados 
+		Const 
+			Se usa para declarar un campo constante o una local constante, los campos y locales constantes no son variables y no se puede modificar 
+		Extern
+			Se usa para declarar un metodo que se implementa externamente 
+		New 
+			Este modificador se utiliza en tres situaciones diferentes:
+				Operador -> Se utiliza para crear objetos e invocar constuctores.
+				Modificador -> Se utiliza para ocultar un miembro heredado de un miembro de clase base
+				Restriccion -> Se utiliza para restricgir tipos  que se podrian utilizar como argumentos para una parametros de tipo en una declaracion gneral 
+		Override
+			Se usa para implementar metodos de clases base marcados como virtual o abstract en las clases derivadas. Al aplicar Override en una clase derivada no se oculta la implementacion en la clase base como sucede con el modificador NEW 
+		Partial
+			Permite dividir la definicion de miembros en varios archivos dentro del mismo ensamblado, es decir la clase esta definida usando mas de un archivo de codigo fuente 
+			Al trabajar en proyectos grandes, el hecho de dividir una clase en archivos independiente permite que varios programadores trabajen al mismo tiempo con ella 
+		Readonly
+			Se utiliza en campos. Provoca que el campo definido con el modificador Readonly no se pueda modificar fuera de la propia declaracion del campo o del constructor de la clase 
+		Sealed
+			Se aplica a clases, metodos, propiedade. Los miembros marcados con Sealed no se pueden derivar.
+			Permite definir clases que no se pueden heredar 
+		Static
+			Los miembros a los que se aplica el modificador estatic perteneceran al tipo declarado y no a un objeto especifico
+			El modificador static puede utilizar con clases, campos, metodos, propiedades operadores y eventos 
+			Los miembros declarados con static tiene la cualidad de solo exitir una ves y no pueden coexitir multiples instancias en memoria al mismo tiempo 
+		Unsafe
+			Denota un contexto no seguro, que es necesario para cualquier operacion que involucre a punteros 	
+		Virtual 
+			Al utilizar el modificador virtual sobre un metodo, propiedad, indizador o declaracion de evento, estamos permitiendo que este se pueda sobre escribir en una clase derivada 
+		Volatile 
+			Indica que varios subprocesos que se ejecutan a la vez pueden modificar un campo.
+			Los campos que se declaran como volatil no estan sujetos a optimizaciones del compilador que suponen el acceso por un cubproceso unico 
+			Garantiza que el valor mas atualizado esta en todo momento presente en el campo
+---------------------------------------------------------------------
+Conversiones de tipo
+	Una conversion permite convertir los tipos entre si, siempre y cuando sean compatibles 
+	la conversion puede realizar de forma explicita o de forma implicita 
+	Implisita 
+		Ocurre automaticamente 
+		Siempre tiene exito
+		no se pierde informacion 
+	Explicita 
+		requiere un casting 
+		puede fallar 
+		se puede perder informacion 
+	
