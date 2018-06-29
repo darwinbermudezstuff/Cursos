@@ -10,7 +10,7 @@ caracteristicas
 		versionable
 		compatible 
 		flexible 
-
+---------------------------------------------------------------------
 POO
 	 Clase
 		Tipo de datos
@@ -49,7 +49,7 @@ POO
 					Herencia 
 					Abstraccion
 					Interface
-
+---------------------------------------------------------------------
 Derivar o extender son palabras sinonimas para herencia
 Para las herencias, se usa base(parametro parametros) para trabajar o usar el contructor de la clase heredada
 cuando heredamos y el contructor del padre lleva datos, se tiene que hacer lo mismo en la hija es decir crear 
@@ -62,10 +62,13 @@ base.NombreMetodoPadre(); pero como lo que realizaremos es crear un nuevo metodo
 se necesita trabajar 
 
 UN polimorfismo es hacer que dos clases se comporten de diferente manera 
-
-
+---------------------------------------------------------------------
+Tipos en C# 
+	Tods los tipos de datos son compartidos por todos los leguajes dentro de la plataforma .NET 
+		Todos los tipos los hereda de System.Objet. 
+		Todos los tipos pueden ser tratados como objetos 
 Tipos de datos
-	valor				
+	valor ( Intrisecos , Enumerable, Estrutura )
 		- se dividen en simple (double, float, chart, boolean y son heredados de la clases, object), estructura, enumeracion
 		- intrinsecos enumeraciones estructura
 		- char, int, float son predefinidos por el sistema
@@ -74,7 +77,7 @@ Tipos de datos
 		- Struc es similar al tipo CLASS estas llevan contructor pero se guardan en pila 
 		- Enum permite utilizar un grupo de constantes a traves de nombres asociados que son representativos que dicah constante 
 
-	refernecia
+	refernecia ( Array , Clases, Interfaces, Punteros, Delegados )
 		arreglos 
 		clases
 		interface
@@ -85,7 +88,7 @@ Tipos de datos
 		crea nueva, interface IVolar { metodos }; class CAvion:IVolar { codigo y codigo que implementa el metodo IVolar() }
 		las interfaces esta pensadas para representar un aspecto de la realidad que a de ser implementado por una clase que herede la interface  
 
-
+---------------------------------------------------------------------
 Operadores logicos
 	Aritmeticos
 		simbolo que representa una accion determinadas para una variable o valor
@@ -97,11 +100,9 @@ Operadores logicos
 		=,!=,>,<
 	Operadores logicos
 		&&, || !
-
+---------------------------------------------------------------------
 Estructura de condicioanles 
 	
-
-
 	Variables
 		Espacio de memoria 
 		Se puede definir como 
@@ -126,7 +127,7 @@ Estructura de condicioanles
 		no es necesario que en el metodo a llamar se tenga que retornar un valor meramente del metodo si no que este realmente ya retorna un valor es decir que si 
 		dentro del metodo este es editado en su valor este retornara el nuevo valor ahora bien es interesante que out funcione de la misma manera solamente que este 
 		antes puede tener asingado valor o no a la hora de enviarlo por el metodo instanciado.
-		
+---------------------------------------------------------------------		
 	Propiedades:
 		Una propiedad es un componente de la clase que combina un campo con los metodos que dan acceso a el 
 		las propiedades permiten hacer validaciones sobre las asignaciones y mantener la consistencias de los datos asignados a los campos miembro o de instancia 
@@ -139,7 +140,6 @@ Estructura de condicioanles
 				get { return "CAFETERIA000" + _id; }	// tomando en cuenta que _id es un campo privado que ya existe
 				set { _id = int.Parce(value); } 		// Ojo lo que hace esto es mandarle el valor de codigo y se lo asigna a la variable privada de _id 
 			}
-
 		
 		Caracteristicas
 			Accede como si se tratara de un campo No como un metodo
@@ -155,6 +155,7 @@ Estructura de condicioanles
 				El descriptor de acceso puede poseer modificadores de acceso diferente 
 				el descriptor get debe poseer un return 
 				el descriptor set usa valuee como su parametro
+---------------------------------------------------------------------			
 	Metodos 
 		un conjunto de instrucciones que realiza una tarea especifica y bien definida 
 		Los metodos solamente se escriben una vez pero pueden ser invocados en multiples ocaciones durante la ejecucion de un programa 
@@ -178,9 +179,6 @@ Estructura de condicioanles
 						La sobre carga de metodos consiste en crear mas de un procedimeinto, contructor de instancia o propiedad en una clase con el mismo nombre y distinto tipos de argumento 
 						Podemos definir varios metodos con el mismo nombre pero con distintos parametros, de forma que el compilador decide a cual se llama dependiendo de los parametros que le lleguen 
 						No tenemos que renombrar cada funcion segun el tipo de valor que acepte 
-			
-		
-		
 ---------------------------------------------------------------------
 
 Modificadores de acceso 
@@ -243,4 +241,111 @@ Conversiones de tipo
 		requiere un casting 
 		puede fallar 
 		se puede perder informacion 
+---------------------------------------------------------------------	
+Arrays
+Cuando la plataforma .net fue lanzada por primera vez se utilizaban las clases del espacio de nombre System.Collections para almancenar e interactuar con los bits de datos que se utilizan dentro de una aplicacion 
+En .net framwork 2.0 el lenguaje de programacion C# mejora para adminitr una caracteristica llamda genericos y con este cambio un nuevo espacio de nomrbes se introdujo en las bibliotecas de clase base: System.Collections.Generic 
+
+La clase Array no forma parte de los espacios de nombres Sytem.Collection. Aun asi, no deja de ser una coleccion, pues se basa en la interfaz Ilist.
+El contenedor mas primitivo que se podria utilizar para almancenar los datos de una aplicacion es la matriz o array 
+Todas las variables de array de C# reunen una buena parte de la funcionalidad de la clase System.Array 
+Un array permite almacenar informacion de muchos elementos en un solo objeto, pudiendo acceder a dicho elementos mediante un indice.
+	Son un conjunto de elementos accesibles desde un unico objeto a partir de una posicion especifica }
+Los array tiene una cantidad de elementos, todos comienzan en cero y su limite superior sera el numero de elementos totales menos 1 	
+Los array pueden ser unidimensionales o multidimensionales
+	unidimensionales: un objeto compuesto por multiples elementos, donde cada uno de los elementos tiene una posicion en conjunto 
+	multidimensionales: Sigue las mismas normas que un array unifemensional, solamente que sus elementos estan accesibles mediante mas de un indice
+	para recorrer en un for los este tipo de arreglo es bueno utilizar la funcion GETUPPERBOUND()
+---------------------------------------------------------------------	
+Colecciones	
+
+Son unas estructura de datos que nos permiten guardar en su interior cualquuier tipo de informacion. Existen diferentes tipos de colecciones como tambien diferentes forma de almacenar, acceder y de aliminar la informacion 
+El .NET Framework define las colecciones en los Namespace 
+	System.Collections
+	System.Collections.Generic 
+Existen dos tipos de coleccion:
+	Generica: 
+	Un coleccion es un tipo de dato que actua como un contenedor para un conjunto de objetos, esta es mas flexible ya que al momento de crearla no se tiene que especificar el tamaño ni tipo de dato a almacenar
+	Son fuertement tipadas
+	Son tipos parametrizados: Es aquel que puede definirse sin especificar los tipos de datos de sus parametros en tiempo de compilacion 
+	Nos dan la posibilidad de declarar clases, estructuras, metodos e interfaces que actuaran uniformemente sobre valores cuyo tipos se desconocen y son recien especificados al momento de su utilizacion   
+	
+	No generica: 
+	Tiene como caracteristicas que no son fuertemente tipificadas por lo que almecena un dato generico que es objeto. 
+	Al momento de almancenar los objetos se convierten en el tipo object y para obtenerlo se deben convertir al dato que necesitamos 
+	Colecciones no genericas mas comunes:
+		ArrayList: No tiene orden de elementos, es parecido a un arreglo y son obtenido por indice sus elementos 
+		Queue (cola): FIFO (First-in First-out) Primero en entrar, primero en salir, se utiliza el metodo "Enqueue" en lugar de Add
+		Stack (pila ): LIFO(last-in first-out) Ultimo en entrar, primero en salir, se utiliza metodo "Push" en lugar de add 
+		HashTable (tablas): Coleccion de tipo diccionario que almacena los elementos relacionados con un llave KEY en lugar de indice 
+		SortedList (lista): Una coleccion tipo diccionario, que almacena los elementos ordenadois por una llave KEY
+
+	Desvetajas principales de la utilizacion de colecciones no genericas 
+	Performance: Como almacenan System.Object, cualquier tipo por referencia que agregue a la coleccion sera casteado automaticamente a un object, y cualquier tipo por valor debera ser convertido su correspondiente tipo pro referencia para ser casteado luego a objeto	a esto se le llama BOXIN, los casteos y operaciones de boxin y un boxin necesarias para insertar y obtener elementos de las colecciones no genericas tiene un impacto negativo en la performance de la misma 
+	Falta de validacion en tiempo de compilacion: Al almacenar objetos de tipo System.Object, no hay forma de que el complilador valide que los datos que se estan insertando en una coleccion sean validos para la aplicacion 
+
+	ArrayList:
+		Guarda la informacion como si fuera una lista. Es un tipo de arreglo que puede cambiar su tamanño segun lo necesitemos.
+		Es un clase de C#, por lo tanto tendra metodos o funciones que nos permitiran guardar cualquier tipo de datos.
+		El ArrayList tiene una propiedad que llamamos "capacidad". esto indica el tamaño que ocupara el ArrayList tambien tenemos el "conteo" que nos dice los elementos que guarda en su interior 
+		db.add(), db.Remove(), db.IndexOf(cadenaABuscar), db.RemoveAt(indice)
+		db.addRange(array o lista) = se puede agregar un listado de una sola vez por ejemplo un arreglo completo string[] cliente 
+		db.Sort = ordena los elementos de forma acendente; caseinsensitivecompare ().compare(x,y)
+	
+	Stack (pila):
+		A esta coleccion se le conoce como STACK o PILA, nos permite guardar elementos y cambian su tamaño de forma dinamica.
+		El STACK es una estructura de tipo LIFO (last-in -- First-out) => ultimo en entrar, primero en salir 
+		
+		4		<=	7 			7		pop	  		4		=> 		7		
+		5						4					5
+		3						5					3
+		10						3					10
+								10		
+		
+		push(), pop(), peek(), clear(), contains(similaraIndexOf()), count
+		la diferencia con peek y pop es que peek solamente toma el dato no lo elimina y pop si lo elimina de la pila 
+		
+	Queue (cola): 
+		Esta coleccion se le conoce tambien como "cola"
+		es una estructura de tipo FIFO (First-in First-out) => Primero entrar primero en salir 
+		
+		4		<=	7 			7		Dequeue	 	7		=> 		10
+		5						4					4
+		3						5					5
+		10						3					3
+								10					
+		
+		Enqueue();   Dequeue(SIN PARAMETRO); PEEK(); contains(similaraIndexOf()), clear(), count,
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
