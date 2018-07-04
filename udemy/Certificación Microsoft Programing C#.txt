@@ -373,33 +373,12 @@ Existen dos tipos de coleccion:
 			La diferencia de capacity y count es que capaciti se puede agregar valor esto nos permite darle un limite de valores al LIST
 			
 	Dictionary
-		Una clase Dictionary es una estructura de datos que representa una coleccion de llaves (KEY) y valores de par de datos 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		Una clase Dictionary es una estructura de datos que representa una coleccion de llaves (KEY) y valores de par de datos (value) 
+		Dentro de las colecciones convencinales, su homonimo es el HashTable
+		No se pueden introducir dos entradas con el mismo valor en el key 
+			Podemos bucar un key utilizando su indice
+		Podemos acceder a las keys solamente mediante la propiedad Keys del dictionary y a los valores mediante la propiedad values 
+		Dictionary<TKey, TValue> 
+		Metodos -> Add, Remove, RemoveAt, ContainsKey, clear, TryGetValue("Valor", out val)
+		Propiedades -> Count, Key, values 
+		El diccionario puede ser utilizado como una matriz para acceder a sus elementos individuales. Es necesario especificar el KEY (no el indice) para obtener su valor  
