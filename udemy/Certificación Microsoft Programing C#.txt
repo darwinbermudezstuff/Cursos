@@ -269,7 +269,7 @@ Existen dos tipos de coleccion:
 	Son fuertement tipadas
 	Son tipos parametrizados: Es aquel que puede definirse sin especificar los tipos de datos de sus parametros en tiempo de compilacion 
 	Nos dan la posibilidad de declarar clases, estructuras, metodos e interfaces que actuaran uniformemente sobre valores cuyo tipos se desconocen y son recien especificados al momento de su utilizacion   
-	
+		
 	No generica: 
 	Tiene como caracteristicas que no son fuertemente tipificadas por lo que almecena un dato generico que es objeto. 
 	Al momento de almancenar los objetos se convierten en el tipo object y para obtenerlo se deben convertir al dato que necesitamos 
@@ -316,10 +316,64 @@ Existen dos tipos de coleccion:
 								10					
 		
 		Enqueue();   Dequeue(SIN PARAMETRO); PEEK(); contains(similaraIndexOf()), clear(), count,
+	
+	Diccionarios
+		Los diccionarios asignan claves a val9ores cuya caracteristica principal es que el objeto sea accesibel a traves de su llave 
+		A diferencia de una lista no puede decirle que me regrese el segundo elemento, pero si puedo decirle que me entregue el valor asociado a "lucas", en cuyo caso el diccionario me regresaria el numero 20
+		Algunos diccionarios que posee C# 
+			HashTable: 
+				un diccionario con pares nombre/valor que pueden ser recuperados por nombre o indice 
+				Es una coleccion indexada, tiene un indeice y un valor referenciado a ese indice, el elemento va a depender del valor conocido como "KEY" o "LLAVE"
+				El valor contenido en "KEY" es usado para calcular la posicion del elemento en el hashtable. El elemento que va a contener el valor se conoce como "value"
+				Add(Key, Value ) => 1. Key sera usado para indexar al elemento, es de cualquier tipo pero general se usa cadena. 2. El valor a insertar tambien puede ser de cualquier tipo.
+				Podemos usar el HashTable para guardar un producto con su costo, el nombre del producto puede ser el "key" y su costo sera el "value" 
+				Si queremos obtener la pareja de "key-value", nos apoyaremos en una clase conocida como "DictionayEnty", ya que guarda la parejas de datos => Foreach(DictionaryEnty data in miTablita){ data.Key and data.Value}
+				Cunado necesitamos leer un elemento en particular del hastable es posible. para usarlo necesitamos colocar el nombre de la instancia de la clase junto con los corchetes y colocamos el KEY que correspoinde al valor que queremos leer en el momento 
+				Debemos tener en cuenta que es posible que necesitemos hacer una conversion de valor correspondietnte en el tipo necesario 
+				Clear(), Constains(key a buscar), ConstainsValue(), count, Remove(key), 
+				
+			SortedList: 
+				Un diccionario que automaticamente ordena sus elementos por claves 
+				Formado por pareja "Key-Value"
+				Obtener la clave que se encuentra en el indice "GetKey"
+				Obtenemos el valor que se encuentra en el indice especificado con "IndexOfKey" 
+				Se ordena el Key automaticamente de forma ascendente 
+				Mantiene internamente dos matrices para almacenar los elementos de la lista. Cada elemento es un par clave/valor. Una clave no puede ser null, pero el valor puede ser null 
+				Add(), Contains(), ContainsValues(), Remove(), RemoveAt(), SetByIndex() 
+				SortedList<TKey, TValue>   
+				Internamente, SortedList<Tkey, Tvalue> mantiene dos objetos IList<T> internos, uno para el almacenamiento de claves y otro para el almacenamiento de valores las cuales se acceden mediante un objeto de la clase 
+				Metodos -> Add, Remove, RemoveAt, ContainsKey, clear, TryGetValue("Valor", out val)
+				Propiedades -> Count, Key, values 
+				KeyValuePair<KValue, TValue> para usar con foreach
+				  
+				
+				
+			StringDiccionary: 
+				Una tabla has con pares nombre/valor implementadas como cadenas de texto fuertemente tipadas 
+				
+			ListDiccionary: 
+				Un diccionario optimizado oara pequenas listas de objetos con alrededor de 10 elementos 
+				
+			HybrudDiccionary: 
+				Un diccionario que usa ListDiccionary para almacenamiento cuando el numero de elementos es pequeno y automaticmanete cambia a Hastable cuando la cantidad es mayor  
+				 
+	
+	
+	Las colecciones genericas, tienen la ventaja inmediata de la seguridad de tipos sin necesidad de derivar de un tipo de coleccion base ni de implementar miembros especificos de tipo
+		List<T> es la clase generica que se corresponde con ArrayList. 
+		Dictionary<TKey, Tvalue> y ConcurrentDictionary<Tkey, TValue> son las clases genericas que se correspoinden con Hastable 
+		Las clases genericas Queue<T>, ConcurrentQueue<T>, Stack<T>, ConcurrentStack<T> y SortedList<TKey, TValue> se corresponden con la respectivas clases no genericas de nombre 
 		
-	
-	
-	
+	Tipos adicionales:
+		Hay varios tipos de colecciones genericas que no tiene un tipo homologo no generico. Entre esos tipos se incluyen los siguientes:
+			LinkedList<T> es una lista vinculada de uso general que proporciona operaciones de eliminacion e insercion 
+			SortedDictionary<TKey, TValue> es un diccionario ordenado con operaciones de elimincion e insercion, lo que lo convierte en una alternativa util a sortedList<TKey, TValue> 
+			List<T> Con un objeto de tipo interfaz, tendremos acceso a todos los miembros publicos de la interfaz. Es decir, tendremos acceso a todas las propiedades y metodos queesten definidos en la interfe. En este caso, instanciamos un objeto de tipo clases. Pro lo tanto tendremos acceso a todos los miembros de la interfaz IList<T>, en la definicion de la clase List<T> se implementa la interfaz IList<T> entre otras.
+				Add, clear, contains, insert, remove, sort, copacity, count, IndexOf, 
+			La diferencia de capacity y count es que capaciti se puede agregar valor esto nos permite darle un limite de valores al LIST
+			
+	Dictionary
+		Una clase Dictionary es una estructura de datos que representa una coleccion de llaves (KEY) y valores de par de datos 
 	
 	
 	
