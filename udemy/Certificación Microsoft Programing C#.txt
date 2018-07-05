@@ -382,3 +382,57 @@ Existen dos tipos de coleccion:
 		Metodos -> Add, Remove, RemoveAt, ContainsKey, clear, TryGetValue("Valor", out val)
 		Propiedades -> Count, Key, values 
 		El diccionario puede ser utilizado como una matriz para acceder a sus elementos individuales. Es necesario especificar el KEY (no el indice) para obtener su valor  
+
+-------------------------------------------------------
+
+
+Herencia 
+	En C# cualquier dato es un objeto porque todos los tipos derivan implicitamente de este tipo, y "heredan" los metodos y campos definidos en dicha clase 
+	La herencia proporcian un mecanismo para definir una nueva clase, a partir de otra que ya existe, modificandola.
+	La nueva clase que se define, se denomina clase derivada y la clase de la que se "Hereda" se llama clase base.
+	Fundamentos de la herencia: Para indicar que una clase hereda de otra, se utiliza clase nueva : claseBase, La clase derivada "Hereda" todas los miembros de la clase base, es decir, tiene todos y cada uno de los miembros de la clase base y los que el programador desee añadir.
+	 Tipos de herencias:
+		Dependiendo del numero de clases y de como se relacionen, la herencia puede ser: 
+			Simple: 
+				Cuando solo se tiene una clase base de la cual hereda la clase derivada, hay herencia simple. 
+				La Herencia simple no excluye la posibilidad de que de una misma clase base se pueda derivar mas de una subclase o clase derivada 
+			multiple: 
+				No es admitida en C#, sin embargo algunos lenguajes de POO si la permiten 
+			de niveles multiples:
+				Se presenta cuando una clase derivada se usa como base para definir ot6ra clase derivada 
+				Es decir, existen diferentes niveles de herencia:
+					En el primero, la clase derivada hereda los miembros de una clase base, mientras que en el segundo, la clase derivada funcina a su ves como un clase base y de esta forma comparte con una tercera clase sus propios miembros y los que heredo 
+		Una clase derivada no puede acceder a variables y funciones privadas de su clase base 
+		Una clase base utiliza normalmente elementos protegidos en lugar de elementos privados 
+		Control de acceso a los miembros de la clase base (I)
+			Los modifcadores de acceso de los miembros de la superclase y de la subclase definen el encapsulamiento y el interfaz de la clase 
+			La forma de acceso a cada uno de los miembros heredados de la clase derivada, depende de los modificades de acceso que cada uno de dichos miembros tenga en la clase base 
+			Un miembro de la clase base declarado como Public, pasa a ser un miembro Public en la clase derivada 
+			Un miembro declarado como Private en la clase base aunque pertebnces a la clase derivada, no puede ser llamado ni desde propio codigo de la clase derivada ni, por supiesto desde ningun codigo exterior a sy clase 
+			Un miembro declarado como Protected, puede ser llamado desde el interior del codigo de la clase derivada pero no desde el exterior de dicha clase, es decir, los objetos de la clase derivada no pueden acceder a ellos 
+-----------------------------------------------------------------------			
+Clase abstractas y metodos virtuales 
+	Una clase abstracta es aquella que forzosamente se ha de derivar si se desea que se puedan crear objetos de la misma o acceder a sus miembros estaticos 
+	Para definir una clase abstracta se antepone obstract a su definicion 
+	Los metodos abstractos no tienen ninguna implementacion, de modo que la definicion de metodos va seguida por un punto y como en lugar de un bloque de metodo normal.
+	Las clases derivadas de la clase abstracta deben implementar tdas los metodos abstractos 
+	Cuando una clase abstracta hereda un metodo virtual de una clase base, la clase abstracta puede reemplazar el metodo virtual con un metodo abstracto
+	Clases abstractas con elementos abstractos 
+		Las clases abstractas pueden definir metodos y propiedades abstractas 
+		Los elementos abstractos NO proporcionan implementaciones, solo declaraciones 
+	Clase abstracta con elementos virtuales 
+		Podemos tambien cambiar dichas definicion en la clase hija. A este topo de metodos se les llama metodos vituales 
+	Metodos virtuales: Si en alguna clase hija quisiesemos dar una nueva definicion del <codigo> del metodo, simplemente lo volveremos a definir en la misma pero sistituyendo en su definicion la palabra reservada virtual por override 
+---------------------------------------------------------	
+Interface 
+	La interface es una alternaiva a una clase abstracta 
+	Un interface garantiza un determinado comportamiento de una clase o estructura 
+	Cuando una clase implementa una interface se garantiza que soportara los metodos, propiedades, eventos e indexadores de la interface.
+	Una interface es similar a una clase o a una estructura, pero sus miembros son abstractos, es decir no estan definidos, no tiene codigo.
+	Coche es un vehiculo, hereda las caracteristicas y comportamiento de un vehiculo, pero puede tener la capacidad de PoderRegularLaTemperatura(como una casa, por ejemplo)
+	Cuando se hereda, se hace referencia a lo que se es, y cuando se implementa una interface se hace referencia a la capacidad de "comportarse" de una determinada manera 
+	Una clase que herede de una interface debe implementar todas las definiciones contenidas en ella.
+	Los elementos de la interface no llevan los modificadores PUBLIC, VIRTUAL o OBSTRACT 
+	Todos los elementos declarados dentro de una interface se consideran publicos y abstractors,
+	Si la interface hereda a su vez de otras interfaces, entonces, despues del nombre de la interface se escribe dos puntos (:)
+	
