@@ -436,3 +436,60 @@ Interface
 	Todos los elementos declarados dentro de una interface se consideran publicos y abstractors,
 	Si la interface hereda a su vez de otras interfaces, entonces, despues del nombre de la interface se escribe dos puntos (:)
 	
+------------------------------------------------------------------------------------------
+Polimorfismo
+	Es la capacidad que tienen los objetos de una clase de responder al mismo mensaje o evento en funcion de los parametros utilizados durante su invocacion 
+	Es la habilidad que posee los objetos para reaccionar de modo diferente ante los mismos mensajes 
+	En C# el polimorfismo esta intimamente relacionado con la sobrecarga y metodos virtuales   
+	Elementos relacionados con el polimorfismo:
+		Sobrecarga (overload), Herencia, Sobre escritura (Overrude)
+	Tipos de polimorfismo:
+		Parametrico:
+			La sobrecarga representa diferentes maneras de realizar una misma accion
+			Una clase define varios metodos con el mismo nombre para diferente firma (sobrecarga)
+		Sobre Carga o proceso adoc:  
+			Diferentes clases tiene un metodo con el mismo nombre, pero comportamiento diferente 
+			Se aplica el metodo de acuerdo al objeto en que se trabaje  
+		Subtipo:
+			Propiedades y metodos pueden heredarse de una superclase. Si estas propiedades y metodos son re-definidos en la case derivada, se dice que han sido "sobrescritos" 
+	Diferencia de polimorfismo - sobrecarga 
+		Un metodo esta sobrecargado si dentro de una clase existen dos o mas declaraciones de dicho metodo con el mismo nombre pero con parametros distintos
+		La sobrecarga se resuelve en tiempo de compilacion utilizando los nombres de los metodos y los tipos de su parametros 
+		El polimorfismo se resuelve en tiempo de ejecucion del programa, esto es, mientras se ejecuta, en funcion  de la clase a la que pertenece el objeto   
+------------------------------------------------------------------------------		
+Leer y escribir datos locales
+	Clase IO 
+		BufferedStream: Inserta un capa de almacenamiento en buffer a las operaciones de lectura y escritura en otra secuencia.
+		FileStream: Dispone de un objeto strim al rededor de un archivo se admite operaciones de lectura de escritura sincrona y asincrona.
+		Stream: Dispone de una vista generica de una secuencia de bytes.
+		StreamReader: Permite incluir un textReader que leera los caracteres de una secuencia de bytes en una codificacion determinada.
+		StreamWrite: Dispone de un TextWrite para escribir los caracteres de una secuencia en una codificacion determinada.
+		StringReader: Dispone de un TextReader que lee en una cadena.
+		StringWrite: Dispone de un TextWrite para escribir informacion en una cadena. La informacion se almacena en el StringBuilder subyacente.
+		TextReader: Dispone de un lector que puede leer una serie secuencial de caracteres. 
+		TextWriter: Dispone de un sistema de escritura que puede escribir una seria secuencial de caracteres 
+	Almacenar datos locales 
+		Almacenar datos locales implica la utilizacion de un archivo fisico 
+		Dependiendo de las clases que utilicemos, la escritura o la lectura de datos sera legible o seran secuenciaas de flujos de bytes que no tiene representacion grafica.
+	Lectura/Escritura Caracteres 
+		Las clases TextReader y TextWriter, permite leer y escribir respectivamente, secuencias de caracteres 
+		El contenido de fichero sera legible y podremos leerlo desde cualquuier bloc de notas de windows 
+		La escritura de fichero podemos realizarla de forma secuencial (letra a letra) o en conjunto, todo el contenido a la vez 
+	Lectura/Escritura Caracteres secuenciales
+		Este es un fichero sin estructura, que se puede leer, en principio de forma secuencial. Para abrirlo, hay que pasarle al constructor de la clase, ademas del nombre de fichero los siguientes datos: 
+		Modo de apertura -> FileMode.Open, OpenOrCreate 
+		Tipo de acceso -> ReadWrite
+		Modo de compartir -> FileShare.Read 
+	Lectura/Escritura datos binarios 
+		Los ficheros binarios tiene la particularidad que los datos se encuentrar almacenados por bytes 
+		Trabajar con ficheros binarios require de un proceso un poco mayor, que con ficheros de texto.
+		La ventaja es que podemos almacenar cualquier tipo de informacion, desde cadenas de caracteres hasta imagenes o documentos.
+		Las clases encargadas del tratamineto de fichero binarios en .NET son BinaryReader, para lectura de los mismos y BinaryWrite para la escritura 
+		Las clases que contienen el nombre Stream, permiten la carga de datos en bytes, se podria decir que es dentro de .NET la encargada de generar buffers de bytes 
+------------------------------------------------------------------------------		
+
+  
+
+
+		
+
