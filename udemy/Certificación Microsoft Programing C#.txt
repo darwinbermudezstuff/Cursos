@@ -489,7 +489,54 @@ Leer y escribir datos locales
 ------------------------------------------------------------------------------		
 
   
-
+----------------------------------------------------------------------------------------------------- 
+Microprocesos e hilos 
+	Los multiprocesos e hilos implican el reparto de tareas de una misma aplicacion
+	Las tareas no se realizan de forma paralela, el procesador asigna un tiempo de procesamiento a cada tarea en funcion de su importancia
+		INTERLEAVING => se basa en prioridades de hilos y se dan en dos paralelismos 
+		Intercalamento con un solo procesador
+			Procesamiento logico 
+				Cuando un procesador es compartido por varios hilos 
+			Paralelismo fisico 
+				Cuando en un equipo de computo existe distintos procesamiento con multiples nucleos y el trabajo es descompuesto en tareas y cada tarea es ejecutada por un procesador independeintemente 
+				
+		Multiprocesos 
+			C# soporta la ejecucion paralela de codigo a travez de los multiprocesos (multithreading)
+			Un thread es un camino de ejecucion de codigo independiente capaz de ejecutarse simultaneamente junto a otros threads 
+			Una aplicacion C# comienza con unico hilo o thread creado automaticamente por el CLR del sistema operativo conocido como el hilo pricipal 
+			El espacio de nombres "System.Threading" alberga clases que permiten crear y controlar las tareas, principalmente mediante la clase "Thread" 
+			Se deben usar cuando una aplicacion debe gestionar varias tareas independeintes, como gestionar una interfaz de usuario o realizar un tratamiento de datos 
+			El delegate "ThreadStart" se emplea para crear un nuevo Thread. Su constructor toma como argumento la declaracion del metodo que se ejecutara en este nuevo Thread 
+		 Propiedades de los Threads 
+			Durante el cambio de contexto, el procesador elige el siguiente thread a ejecutar en funcion de sus prioridades
+			La propiedad priority de la clase Thread permite modificar esta propiedad relativa, con uno de los valores de la enumeracion 
+			ThreadPriority:
+				Highest		
+				Normal 
+				AboveNormal		
+				BelowNormal 	
+				Lowest
+				
+				
+	Notas:
+		Cuando se trabaja con hilos tomar en cuenta que muchas veces se va a generar una exepcion que es muy comun que se de, ya que al momento de trabajar con hilos si se esta trabajndo sobre paquetes o aplicaciones por separado tal como se da el ejemplo de la clase en windowsform aplication que utiliza paquetes para imprimir o mostrar interfaces el problema nace ya que la tarea que se esta ejecuta en segundo plano o en paralelo no tiene idea de los objetos o instancias que se ejecuta en la siguiente tarea por lo que no hay ninguna comunicacion entre los dos tal cual nos dice el error, aqui la operacion no es validad atraves de su proceso ya que se tuvo el acceso a un control que es progressbar desde un subproceso distinto al que se presento eso quiere decir que nuestro progressbar esta instanciado en un proceso muy diferente si queremos saber en que parte de codigo esta instanciado o siendo llamar nuestro progressbar podemos dirigirnos dentro de nuestro formulario al archivo form1.Disigner.cs al abrirlo podemos darnos cuenta que esta todo el codigo para contrurir los codigo que vemos en nuestros formulario. 
+		Para solicionar esto vamos a ver dos metodos muy utilizados 
+			dentro de donde ejecutamos nuestro hilo usar la clase CheckForIllegalCrossTheread pero ojo esta manera es indevidad ya que genera mucho errore a la larga 
+			Delegados: esto es mejor utilizarlo:
+				delagate void DelegateCambiarProgreso(int valor);
+				
+				private void CambiarProgreso(int valor){
+					if(this.InvokeRequered){
+						DelegateCambiarProgreso delegado = new DelegateCambiarProgreso(CambiarProgreso);
+						object[] parametro = new object[] { valor };
+						this.Invoke(delegate, parametro);
+					}else{
+						progressBar.Value = value;
+					}
+				}
+		
+-----------------------------------------------------------------------------------------------------
+	
 
 		
 
