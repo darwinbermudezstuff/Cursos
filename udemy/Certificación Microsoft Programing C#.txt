@@ -538,5 +538,83 @@ Microprocesos e hilos
 -----------------------------------------------------------------------------------------------------
 	
 
+
+------------------------------------------------------------------------------------------------------------------------------
+LINQ 
+	Es una combinacion de extensiones al lengujae y librerias de codigo manejado que permite expresar de manera uniforme las consultas sobre colecciones de datos 
+	Sin importar la fuenta de datos que utiliza permite consultar informacion con tecnologia tan diferentes como ficheros XML base de datos relacionales o colecciones fuertemente tipadas 
+	Permite expresar las consultas sobre datos de diversa procedencia utilizando recursos de propio lenguaje de programacion 
+	Ventajas 
+		A la hora de expresar consultas, podremos aprovechar todas las facilidades que el complilador y el enterno integrado que LINQ nos permitira, como reducir en gran medida el fenomeno del "desajuste de impedancias".
+			desajuste de impedancias: Esto hace mension a la diferencia que existe entre los modelos relacionales bases de datos y los modelos conceptuales implementado en lenguajes de programacion orientado a objetos 
+	Arquitectura
+		Su arquitectura abierta hace posible la extensibilidad
+		La semantica de los operadores en las expresiones de consulta, no esta en modo alguno "cableada" en el lenguaje si no que puede ser modificada o extendidas por librerias de microsoft o terceros fabricante para el acceso de funte de datos especificas 
+	Mejoras del lenguaje C# que admite LINQ 
+		Expresiones de consulta
+		Variables con tipo implicito
+		Inicializadores de objetos 
+		Tipos anonimos
+		Metodos de extension 
+		Expresiones labda  
+	Mecanismos Linq 
+		Microsoft
+			LINQ to Array 
+			LINQ to object 
+			LINQ to XML 
+			LINQ to DataSets 
+			LINQ to SQL 
+		Otras fuentes de datos 
+			LINQ to Amazone 
+			LINQ to SharePoint 
+			
+		LINQ 
+			LINQ TO OBJECT 		-> Objeto en memoria
+			LINQ TO DATASET 	-> DATASET 
+			LINQ TO SQL 		-> BASE DE DATOS RELACIONALES 
+			LINQ TO ENTITIES	-> ENTIDADES ADO.NET 
+			LINQ TO XML 		-> DOCUMENTOS XML  
+		LINQ to SQL es una implementacion de O/RM que viene con .NET Framework y nos permite modelar base de datos relacionales con clases de .NET 
+		Podemos consultar bases de datos con LINQ, asi como:
+			Actualizar 
+			Añadir 
+			Borrar 
+------------------------------------------------------------------------------------------------------------------------------			
+Expresiones de consulta en LINQ 
+	Son el principal mecanismo mediante la cual cobra vida la tecnologia LINQ 
+	Son expresiones que reponden a una nueva sintaxxis que se ha añadido a C# 3.0 
+	Pueden actuar sobre cualquier objeto que implemente la interfaz generica IEnumerable<T>
+	Productos cartesianos 
+		El mismo concepto se puede aplicar en linq a la combinacion de dos secuencias 
+		Si se colocan dos clausulas from  (que actuan como generadoras) seguidas, para cada elemento de la primera secuencia se produciran todos los elementos de la segunda 
+	Restriccion de productos y optimizacion de consultas
+		Un tipo de producto cartesiano relativamente frecuente es el auto-producto, en el que combina una secuancia consigo misma 
+	Encuentros
+		Los encuentros son otra de las constucciones tipicas de los lenguajes relacionales como SQL que han sido incorporadas a las expresioanes de consulta de C# 3.0 
+		Es basicamente un producto cartesiano sobre dos secuancias limitada a las tuplas (t1, t2) en la que el valor de cuerta expresion aplicada al elemento de la primera secuancia t1 es igual al valor de otra expresion aplicada al elemento de la segunda tabla t2 
+	Diferencias con el producto cartesiano 
+		Hubieramos obtenido el mismo resultado  de antes ejecutando la siguiente consulta, basada en un producto cartesiano usando un WHERE 
+	LET
+		Esta clausula sirve como un mecanismo de conveniencia muy util en los casos en que necesitemos asignar, un nombre a un resultado intermedio para aprovecharlo mas adelante o ejecutar una sub consulta cuyo resultado necesitamos dentro de otr consulta  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 
