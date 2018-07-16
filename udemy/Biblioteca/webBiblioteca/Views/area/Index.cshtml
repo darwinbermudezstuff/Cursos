@@ -1,0 +1,25 @@
+﻿@model webBiblioteca.Models.areaModels
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de todas las areas</h2>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>area</th>
+        <th></th>
+    </tr>
+    @{ int i = 1;}
+    @foreach(var item in Model.Areas)
+    {
+        <tr>
+            <td>@i</td>
+            <td>@Html.DisplayFor(modelItem => item.area)</td>
+            <td>@Html.ActionLink("Editar", "editamos", new { id = item.idArea })</td>
+        </tr>
+        i++;
+    }
+</table>

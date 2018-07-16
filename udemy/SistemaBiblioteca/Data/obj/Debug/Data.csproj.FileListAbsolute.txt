@@ -1,0 +1,10 @@
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\bin\Debug\Data.dll.config
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\bin\Debug\Data.dll
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\bin\Debug\Data.pdb
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\bin\Debug\EntityFramework.dll
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\bin\Debug\EntityFramework.SqlServer.dll
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\bin\Debug\EntityFramework.xml
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\bin\Debug\EntityFramework.SqlServer.xml
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\obj\Debug\Data.dll
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\obj\Debug\Data.pdb
+\\mac\home\documents\visual studio 2015\Projects\SistemaBiblioteca\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache

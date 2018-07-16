@@ -1,0 +1,7 @@
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataFree\bin\Debug\DataFree.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataFree\bin\Debug\DataFree.pdb
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataFree\bin\Debug\DataEntity.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataFree\bin\Debug\DataEntity.pdb
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataFree\obj\Debug\DataFree.csprojResolveAssemblyReference.cache
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataFree\obj\Debug\DataFree.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataFree\obj\Debug\DataFree.pdb

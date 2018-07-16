@@ -1,0 +1,52 @@
+﻿@model Biblioteca.Models.Estudiante.EstudianteViewModels
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idLector)
+        </th>
+        <th></th>
+    </tr>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Carrera</th>
+                <th>CI</th>
+                <th>Edad</th>
+                <th></th>
+            </tr>
+        </thead><!-- table head -->
+        <tbody>
+
+
+            @{int i = 1;}
+            @foreach (var item in Model.EstudianteLista)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.apellido)</td>
+                    <td>@Html.DisplayFor(modelItem => item.carrera)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ci)</td>
+                    <td>@Html.DisplayFor(modelItem => item.edad)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+    <p>
+        <label class="ActionPop" data-url="@Url.Action("")">Create New</label>
+    </p>

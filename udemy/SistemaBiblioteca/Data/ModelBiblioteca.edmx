@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BIBLIOTECAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AREA">
+          <Key>
+            <PropertyRef Name="idArea" />
+          </Key>
+          <Property Name="idArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="area" Type="varchar" MaxLength="75" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTOR">
+          <Key>
+            <PropertyRef Name="idAutor" />
+          </Key>
+          <Property Name="idAutor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="autor" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EDITORIAL">
+          <Key>
+            <PropertyRef Name="idEditorial" />
+          </Key>
+          <Property Name="idEditorial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="editorial" Type="varchar" MaxLength="75" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTUDIANTE">
+          <Key>
+            <PropertyRef Name="idLector" />
+          </Key>
+          <Property Name="idLector" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ci" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="carrera" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="edad" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BIBLIOTECA.dbo.LIBAUT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LIBAUT">
+          <Key>
+            <PropertyRef Name="idLibro" />
+            <PropertyRef Name="idAutor" />
+          </Key>
+          <Property Name="idLibro" Type="int" Nullable="false" />
+          <Property Name="idAutor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LIBRO">
+          <Key>
+            <PropertyRef Name="idLibro" />
+          </Key>
+          <Property Name="idLibro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="idEditorial" Type="int" Nullable="false" />
+          <Property Name="idArea" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BIBLIOTECA.dbo.PRESTAMO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PRESTAMO">
+          <Key>
+            <PropertyRef Name="idLector" />
+            <PropertyRef Name="idLibro" />
+            <PropertyRef Name="fechaPrestamo" />
+            <PropertyRef Name="fechaDevolucion" />
+            <PropertyRef Name="devuelto" />
+          </Key>
+          <Property Name="idLector" Type="int" Nullable="false" />
+          <Property Name="idLibro" Type="int" Nullable="false" />
+          <Property Name="fechaPrestamo" Type="datetime" Nullable="false" />
+          <Property Name="fechaDevolucion" Type="datetime" Nullable="false" />
+          <Property Name="devuelto" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_idAreaLIBRO">
+          <End Role="AREA" Type="Self.AREA" Multiplicity="1" />
+          <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AREA">
+              <PropertyRef Name="idArea" />
+            </Principal>
+            <Dependent Role="LIBRO">
+              <PropertyRef Name="idArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idAutorLIBAUT">
+          <End Role="AUTOR" Type="Self.AUTOR" Multiplicity="1" />
+          <End Role="LIBAUT" Type="Self.LIBAUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTOR">
+              <PropertyRef Name="idAutor" />
+            </Principal>
+            <Dependent Role="LIBAUT">
+              <PropertyRef Name="idAutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idEditorialLIBRO">
+          <End Role="EDITORIAL" Type="Self.EDITORIAL" Multiplicity="1" />
+          <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EDITORIAL">
+              <PropertyRef Name="idEditorial" />
+            </Principal>
+            <Dependent Role="LIBRO">
+              <PropertyRef Name="idEditorial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idLectorPRESTAMO">
+          <End Role="ESTUDIANTE" Type="Self.ESTUDIANTE" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTUDIANTE">
+              <PropertyRef Name="idLector" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="idLector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idLibroLIBAUT">
+          <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="1" />
+          <End Role="LIBAUT" Type="Self.LIBAUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LIBRO">
+              <PropertyRef Name="idLibro" />
+            </Principal>
+            <Dependent Role="LIBAUT">
+              <PropertyRef Name="idLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idLibroPRESTAMO">
+          <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LIBRO">
+              <PropertyRef Name="idLibro" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="idLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CREATEESTUDIANTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ci" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="direccion" Type="varchar" Mode="In" />
+          <Parameter Name="carrera" Type="varchar" Mode="In" />
+          <Parameter Name="edad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="EDITBOOK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idLibro" Type="int" Mode="In" />
+          <Parameter Name="titulo" Type="varchar" Mode="In" />
+          <Parameter Name="idEditorial" Type="int" Mode="In" />
+          <Parameter Name="idArea" Type="int" Mode="In" />
+        </Function>
+        <Function Name="VIEWBOOK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="autor" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="BIBLIOTECAModelStoreContainer">
+          <EntitySet Name="AREA" EntityType="Self.AREA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AUTOR" EntityType="Self.AUTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EDITORIAL" EntityType="Self.EDITORIAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTUDIANTE" EntityType="Self.ESTUDIANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LIBRO" EntityType="Self.LIBRO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LIBAUT" EntityType="Self.LIBAUT" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LIBAUT].[idLibro] AS [idLibro], 
+    [LIBAUT].[idAutor] AS [idAutor]
+    FROM [dbo].[LIBAUT] AS [LIBAUT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PRESTAMO" EntityType="Self.PRESTAMO" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PRESTAMO].[idLector] AS [idLector], 
+    [PRESTAMO].[idLibro] AS [idLibro], 
+    [PRESTAMO].[fechaPrestamo] AS [fechaPrestamo], 
+    [PRESTAMO].[fechaDevolucion] AS [fechaDevolucion], 
+    [PRESTAMO].[devuelto] AS [devuelto]
+    FROM [dbo].[PRESTAMO] AS [PRESTAMO]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_idAreaLIBRO" Association="Self.FK_idAreaLIBRO">
+            <End Role="AREA" EntitySet="AREA" />
+            <End Role="LIBRO" EntitySet="LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idAutorLIBAUT" Association="Self.FK_idAutorLIBAUT">
+            <End Role="AUTOR" EntitySet="AUTOR" />
+            <End Role="LIBAUT" EntitySet="LIBAUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idEditorialLIBRO" Association="Self.FK_idEditorialLIBRO">
+            <End Role="EDITORIAL" EntitySet="EDITORIAL" />
+            <End Role="LIBRO" EntitySet="LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idLectorPRESTAMO" Association="Self.FK_idLectorPRESTAMO">
+            <End Role="ESTUDIANTE" EntitySet="ESTUDIANTE" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idLibroLIBAUT" Association="Self.FK_idLibroLIBAUT">
+            <End Role="LIBRO" EntitySet="LIBRO" />
+            <End Role="LIBAUT" EntitySet="LIBAUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idLibroPRESTAMO" Association="Self.FK_idLibroPRESTAMO">
+            <End Role="LIBRO" EntitySet="LIBRO" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BIBLIOTECAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AREA">
+          <Key>
+            <PropertyRef Name="idArea" />
+          </Key>
+          <Property Name="idArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="area1" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LIBRO" Relationship="Self.FK_idAreaLIBRO" FromRole="AREA" ToRole="LIBRO" />
+        </EntityType>
+        <EntityType Name="AUTOR">
+          <Key>
+            <PropertyRef Name="idAutor" />
+          </Key>
+          <Property Name="idAutor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="autor1" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LIBRO" Relationship="Self.LIBAUT" FromRole="AUTOR" ToRole="LIBRO" />
+        </EntityType>
+        <EntityType Name="EDITORIAL">
+          <Key>
+            <PropertyRef Name="idEditorial" />
+          </Key>
+          <Property Name="idEditorial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="editorial1" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LIBRO" Relationship="Self.FK_idEditorialLIBRO" FromRole="EDITORIAL" ToRole="LIBRO" />
+        </EntityType>
+        <EntityType Name="ESTUDIANTE">
+          <Key>
+            <PropertyRef Name="idLector" />
+          </Key>
+          <Property Name="idLector" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ci" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="carrera" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="edad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PRESTAMO" Relationship="Self.FK_idLectorPRESTAMO" FromRole="ESTUDIANTE" ToRole="PRESTAMO" />
+        </EntityType>
+        <EntityType Name="LIBRO">
+          <Key>
+            <PropertyRef Name="idLibro" />
+          </Key>
+          <Property Name="idLibro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idEditorial" Type="Int32" Nullable="false" />
+          <Property Name="idArea" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AREA" Relationship="Self.FK_idAreaLIBRO" FromRole="LIBRO" ToRole="AREA" />
+          <NavigationProperty Name="EDITORIAL" Relationship="Self.FK_idEditorialLIBRO" FromRole="LIBRO" ToRole="EDITORIAL" />
+          <NavigationProperty Name="PRESTAMO" Relationship="Self.FK_idLibroPRESTAMO" FromRole="LIBRO" ToRole="PRESTAMO" />
+          <NavigationProperty Name="AUTOR" Relationship="Self.LIBAUT" FromRole="LIBRO" ToRole="AUTOR" />
+        </EntityType>
+        <EntityType Name="PRESTAMO">
+          <Key>
+            <PropertyRef Name="idLector" />
+            <PropertyRef Name="idLibro" />
+            <PropertyRef Name="fechaPrestamo" />
+            <PropertyRef Name="fechaDevolucion" />
+            <PropertyRef Name="devuelto" />
+          </Key>
+          <Property Name="idLector" Type="Int32" Nullable="false" />
+          <Property Name="idLibro" Type="Int32" Nullable="false" />
+          <Property Name="fechaPrestamo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaDevolucion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="devuelto" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ESTUDIANTE" Relationship="Self.FK_idLectorPRESTAMO" FromRole="PRESTAMO" ToRole="ESTUDIANTE" />
+          <NavigationProperty Name="LIBRO" Relationship="Self.FK_idLibroPRESTAMO" FromRole="PRESTAMO" ToRole="LIBRO" />
+        </EntityType>
+        <Association Name="FK_idAreaLIBRO">
+          <End Role="AREA" Type="Self.AREA" Multiplicity="1" />
+          <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AREA">
+              <PropertyRef Name="idArea" />
+            </Principal>
+            <Dependent Role="LIBRO">
+              <PropertyRef Name="idArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idEditorialLIBRO">
+          <End Role="EDITORIAL" Type="Self.EDITORIAL" Multiplicity="1" />
+          <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EDITORIAL">
+              <PropertyRef Name="idEditorial" />
+            </Principal>
+            <Dependent Role="LIBRO">
+              <PropertyRef Name="idEditorial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idLectorPRESTAMO">
+          <End Role="ESTUDIANTE" Type="Self.ESTUDIANTE" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTUDIANTE">
+              <PropertyRef Name="idLector" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="idLector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idLibroPRESTAMO">
+          <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LIBRO">
+              <PropertyRef Name="idLibro" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="idLibro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LIBAUT">
+          <End Role="AUTOR" Type="Self.AUTOR" Multiplicity="*" />
+          <End Role="LIBRO" Type="Self.LIBRO" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BIBLIOTECAEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AREA" EntityType="Self.AREA" />
+          <EntitySet Name="AUTOR" EntityType="Self.AUTOR" />
+          <EntitySet Name="EDITORIAL" EntityType="Self.EDITORIAL" />
+          <EntitySet Name="ESTUDIANTE" EntityType="Self.ESTUDIANTE" />
+          <EntitySet Name="LIBRO" EntityType="Self.LIBRO" />
+          <EntitySet Name="PRESTAMO" EntityType="Self.PRESTAMO" />
+          <AssociationSet Name="FK_idAreaLIBRO" Association="Self.FK_idAreaLIBRO">
+            <End Role="AREA" EntitySet="AREA" />
+            <End Role="LIBRO" EntitySet="LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idEditorialLIBRO" Association="Self.FK_idEditorialLIBRO">
+            <End Role="EDITORIAL" EntitySet="EDITORIAL" />
+            <End Role="LIBRO" EntitySet="LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idLectorPRESTAMO" Association="Self.FK_idLectorPRESTAMO">
+            <End Role="ESTUDIANTE" EntitySet="ESTUDIANTE" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idLibroPRESTAMO" Association="Self.FK_idLibroPRESTAMO">
+            <End Role="LIBRO" EntitySet="LIBRO" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+          <AssociationSet Name="LIBAUT" Association="Self.LIBAUT">
+            <End Role="AUTOR" EntitySet="AUTOR" />
+            <End Role="LIBRO" EntitySet="LIBRO" />
+          </AssociationSet>
+          <FunctionImport Name="CREATEESTUDIANTE" ReturnType="Collection(BIBLIOTECAModel.CREATEESTUDIANTE_Result)">
+            <Parameter Name="ci" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="direccion" Mode="In" Type="String" />
+            <Parameter Name="carrera" Mode="In" Type="String" />
+            <Parameter Name="edad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EDITBOOK" ReturnType="Collection(BIBLIOTECAModel.EDITBOOK_Result)">
+            <Parameter Name="idLibro" Mode="In" Type="Int32" />
+            <Parameter Name="titulo" Mode="In" Type="String" />
+            <Parameter Name="idEditorial" Mode="In" Type="Int32" />
+            <Parameter Name="idArea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="VIEWBOOK" ReturnType="Collection(String)">
+            <Parameter Name="autor" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="CREATEESTUDIANTE_Result">
+          <Property Type="Int32" Name="idLector" Nullable="false" />
+          <Property Type="String" Name="ci" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="75" />
+          <Property Type="String" Name="apellido" Nullable="false" MaxLength="75" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="carrera" Nullable="false" MaxLength="75" />
+          <Property Type="Int32" Name="edad" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="EDITBOOK_Result">
+          <Property Type="Int32" Name="idLibro" Nullable="false" />
+          <Property Type="String" Name="titulo" Nullable="false" MaxLength="75" />
+          <Property Type="Int32" Name="idEditorial" Nullable="false" />
+          <Property Type="Int32" Name="idArea" Nullable="false" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="21" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BIBLIOTECAModelStoreContainer" CdmEntityContainer="BIBLIOTECAEntities1">
+          <EntitySetMapping Name="AREA">
+            <EntityTypeMapping TypeName="BIBLIOTECAModel.AREA">
+              <MappingFragment StoreEntitySet="AREA">
+                <ScalarProperty Name="idArea" ColumnName="idArea" />
+                <ScalarProperty Name="area1" ColumnName="area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTOR">
+            <EntityTypeMapping TypeName="BIBLIOTECAModel.AUTOR">
+              <MappingFragment StoreEntitySet="AUTOR">
+                <ScalarProperty Name="idAutor" ColumnName="idAutor" />
+                <ScalarProperty Name="autor1" ColumnName="autor" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EDITORIAL">
+            <EntityTypeMapping TypeName="BIBLIOTECAModel.EDITORIAL">
+              <MappingFragment StoreEntitySet="EDITORIAL">
+                <ScalarProperty Name="idEditorial" ColumnName="idEditorial" />
+                <ScalarProperty Name="editorial1" ColumnName="editorial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTUDIANTE">
+            <EntityTypeMapping TypeName="BIBLIOTECAModel.ESTUDIANTE">
+              <MappingFragment StoreEntitySet="ESTUDIANTE">
+                <ScalarProperty Name="idLector" ColumnName="idLector" />
+                <ScalarProperty Name="ci" ColumnName="ci" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="carrera" ColumnName="carrera" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LIBRO">
+            <EntityTypeMapping TypeName="BIBLIOTECAModel.LIBRO">
+              <MappingFragment StoreEntitySet="LIBRO">
+                <ScalarProperty Name="idLibro" ColumnName="idLibro" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="idEditorial" ColumnName="idEditorial" />
+                <ScalarProperty Name="idArea" ColumnName="idArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRESTAMO">
+            <EntityTypeMapping TypeName="BIBLIOTECAModel.PRESTAMO">
+              <MappingFragment StoreEntitySet="PRESTAMO">
+                <ScalarProperty Name="idLector" ColumnName="idLector" />
+                <ScalarProperty Name="idLibro" ColumnName="idLibro" />
+                <ScalarProperty Name="fechaPrestamo" ColumnName="fechaPrestamo" />
+                <ScalarProperty Name="fechaDevolucion" ColumnName="fechaDevolucion" />
+                <ScalarProperty Name="devuelto" ColumnName="devuelto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="LIBAUT" TypeName="BIBLIOTECAModel.LIBAUT" StoreEntitySet="LIBAUT">
+            <EndProperty Name="AUTOR">
+              <ScalarProperty Name="idAutor" ColumnName="idAutor" />
+            </EndProperty>
+            <EndProperty Name="LIBRO">
+              <ScalarProperty Name="idLibro" ColumnName="idLibro" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="CREATEESTUDIANTE" FunctionName="BIBLIOTECAModel.Store.CREATEESTUDIANTE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BIBLIOTECAModel.CREATEESTUDIANTE_Result">
+                <ScalarProperty Name="idLector" ColumnName="idLector" />
+                <ScalarProperty Name="ci" ColumnName="ci" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="carrera" ColumnName="carrera" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EDITBOOK" FunctionName="BIBLIOTECAModel.Store.EDITBOOK">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BIBLIOTECAModel.EDITBOOK_Result">
+                <ScalarProperty Name="idLibro" ColumnName="idLibro" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="idEditorial" ColumnName="idEditorial" />
+                <ScalarProperty Name="idArea" ColumnName="idArea" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIEWBOOK" FunctionName="BIBLIOTECAModel.Store.VIEWBOOK" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

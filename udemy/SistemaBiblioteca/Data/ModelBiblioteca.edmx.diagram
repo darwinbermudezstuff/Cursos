@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9f563a2426794004adea3e49beb3d8fd" Name="Diagram1">
+        <EntityTypeShape EntityType="BIBLIOTECAModel.AREA" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIBLIOTECAModel.AUTOR" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIBLIOTECAModel.EDITORIAL" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIBLIOTECAModel.ESTUDIANTE" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIBLIOTECAModel.LIBRO" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIBLIOTECAModel.PRESTAMO" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="BIBLIOTECAModel.FK_idAreaLIBRO" ManuallyRouted="false" />
+        <AssociationConnector Association="BIBLIOTECAModel.FK_idEditorialLIBRO" ManuallyRouted="false" />
+        <AssociationConnector Association="BIBLIOTECAModel.FK_idLectorPRESTAMO" ManuallyRouted="false" />
+        <AssociationConnector Association="BIBLIOTECAModel.FK_idLibroPRESTAMO" ManuallyRouted="false" />
+        <AssociationConnector Association="BIBLIOTECAModel.LIBAUT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

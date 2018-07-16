@@ -1,0 +1,9 @@
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\bin\Debug\Bussines.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\bin\Debug\Bussines.pdb
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\bin\Debug\DataEntity.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\bin\Debug\DataFree.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\bin\Debug\DataEntity.pdb
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\bin\Debug\DataFree.pdb
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\obj\Debug\Bussines.csprojResolveAssemblyReference.cache
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\obj\Debug\Bussines.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\Bussines\obj\Debug\Bussines.pdb

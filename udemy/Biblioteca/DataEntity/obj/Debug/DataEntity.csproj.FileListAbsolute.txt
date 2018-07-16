@@ -1,0 +1,4 @@
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataEntity\bin\Debug\DataEntity.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataEntity\bin\Debug\DataEntity.pdb
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataEntity\obj\Debug\DataEntity.dll
+\\mac\home\documents\visual studio 2015\Projects\Biblioteca\DataEntity\obj\Debug\DataEntity.pdb

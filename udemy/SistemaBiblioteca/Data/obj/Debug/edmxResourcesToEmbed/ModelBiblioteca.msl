@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BIBLIOTECAModelStoreContainer" CdmEntityContainer="BIBLIOTECAEntities1">
+    <EntitySetMapping Name="AREA">
+      <EntityTypeMapping TypeName="BIBLIOTECAModel.AREA">
+        <MappingFragment StoreEntitySet="AREA">
+          <ScalarProperty Name="idArea" ColumnName="idArea" />
+          <ScalarProperty Name="area1" ColumnName="area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AUTOR">
+      <EntityTypeMapping TypeName="BIBLIOTECAModel.AUTOR">
+        <MappingFragment StoreEntitySet="AUTOR">
+          <ScalarProperty Name="idAutor" ColumnName="idAutor" />
+          <ScalarProperty Name="autor1" ColumnName="autor" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EDITORIAL">
+      <EntityTypeMapping TypeName="BIBLIOTECAModel.EDITORIAL">
+        <MappingFragment StoreEntitySet="EDITORIAL">
+          <ScalarProperty Name="idEditorial" ColumnName="idEditorial" />
+          <ScalarProperty Name="editorial1" ColumnName="editorial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTUDIANTE">
+      <EntityTypeMapping TypeName="BIBLIOTECAModel.ESTUDIANTE">
+        <MappingFragment StoreEntitySet="ESTUDIANTE">
+          <ScalarProperty Name="idLector" ColumnName="idLector" />
+          <ScalarProperty Name="ci" ColumnName="ci" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="carrera" ColumnName="carrera" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LIBRO">
+      <EntityTypeMapping TypeName="BIBLIOTECAModel.LIBRO">
+        <MappingFragment StoreEntitySet="LIBRO">
+          <ScalarProperty Name="idLibro" ColumnName="idLibro" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="idEditorial" ColumnName="idEditorial" />
+          <ScalarProperty Name="idArea" ColumnName="idArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRESTAMO">
+      <EntityTypeMapping TypeName="BIBLIOTECAModel.PRESTAMO">
+        <MappingFragment StoreEntitySet="PRESTAMO">
+          <ScalarProperty Name="idLector" ColumnName="idLector" />
+          <ScalarProperty Name="idLibro" ColumnName="idLibro" />
+          <ScalarProperty Name="fechaPrestamo" ColumnName="fechaPrestamo" />
+          <ScalarProperty Name="fechaDevolucion" ColumnName="fechaDevolucion" />
+          <ScalarProperty Name="devuelto" ColumnName="devuelto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="LIBAUT" TypeName="BIBLIOTECAModel.LIBAUT" StoreEntitySet="LIBAUT">
+      <EndProperty Name="AUTOR">
+        <ScalarProperty Name="idAutor" ColumnName="idAutor" />
+      </EndProperty>
+      <EndProperty Name="LIBRO">
+        <ScalarProperty Name="idLibro" ColumnName="idLibro" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="CREATEESTUDIANTE" FunctionName="BIBLIOTECAModel.Store.CREATEESTUDIANTE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BIBLIOTECAModel.CREATEESTUDIANTE_Result">
+          <ScalarProperty Name="idLector" ColumnName="idLector" />
+          <ScalarProperty Name="ci" ColumnName="ci" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="carrera" ColumnName="carrera" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EDITBOOK" FunctionName="BIBLIOTECAModel.Store.EDITBOOK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BIBLIOTECAModel.EDITBOOK_Result">
+          <ScalarProperty Name="idLibro" ColumnName="idLibro" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="idEditorial" ColumnName="idEditorial" />
+          <ScalarProperty Name="idArea" ColumnName="idArea" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VIEWBOOK" FunctionName="BIBLIOTECAModel.Store.VIEWBOOK" />
+  </EntityContainerMapping>
+</Mapping>
