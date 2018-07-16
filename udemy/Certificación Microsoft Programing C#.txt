@@ -269,7 +269,7 @@ Existen dos tipos de coleccion:
 	Son fuertement tipadas
 	Son tipos parametrizados: Es aquel que puede definirse sin especificar los tipos de datos de sus parametros en tiempo de compilacion 
 	Nos dan la posibilidad de declarar clases, estructuras, metodos e interfaces que actuaran uniformemente sobre valores cuyo tipos se desconocen y son recien especificados al momento de su utilizacion   
-	
+		
 	No generica: 
 	Tiene como caracteristicas que no son fuertemente tipificadas por lo que almecena un dato generico que es objeto. 
 	Al momento de almancenar los objetos se convierten en el tipo object y para obtenerlo se deben convertir al dato que necesitamos 
@@ -316,7 +316,286 @@ Existen dos tipos de coleccion:
 								10					
 		
 		Enqueue();   Dequeue(SIN PARAMETRO); PEEK(); contains(similaraIndexOf()), clear(), count,
+	
+	Diccionarios
+		Los diccionarios asignan claves a val9ores cuya caracteristica principal es que el objeto sea accesibel a traves de su llave 
+		A diferencia de una lista no puede decirle que me regrese el segundo elemento, pero si puedo decirle que me entregue el valor asociado a "lucas", en cuyo caso el diccionario me regresaria el numero 20
+		Algunos diccionarios que posee C# 
+			HashTable: 
+				un diccionario con pares nombre/valor que pueden ser recuperados por nombre o indice 
+				Es una coleccion indexada, tiene un indeice y un valor referenciado a ese indice, el elemento va a depender del valor conocido como "KEY" o "LLAVE"
+				El valor contenido en "KEY" es usado para calcular la posicion del elemento en el hashtable. El elemento que va a contener el valor se conoce como "value"
+				Add(Key, Value ) => 1. Key sera usado para indexar al elemento, es de cualquier tipo pero general se usa cadena. 2. El valor a insertar tambien puede ser de cualquier tipo.
+				Podemos usar el HashTable para guardar un producto con su costo, el nombre del producto puede ser el "key" y su costo sera el "value" 
+				Si queremos obtener la pareja de "key-value", nos apoyaremos en una clase conocida como "DictionayEnty", ya que guarda la parejas de datos => Foreach(DictionaryEnty data in miTablita){ data.Key and data.Value}
+				Cunado necesitamos leer un elemento en particular del hastable es posible. para usarlo necesitamos colocar el nombre de la instancia de la clase junto con los corchetes y colocamos el KEY que correspoinde al valor que queremos leer en el momento 
+				Debemos tener en cuenta que es posible que necesitemos hacer una conversion de valor correspondietnte en el tipo necesario 
+				Clear(), Constains(key a buscar), ConstainsValue(), count, Remove(key), 
+				
+			SortedList: 
+				Un diccionario que automaticamente ordena sus elementos por claves 
+				Formado por pareja "Key-Value"
+				Obtener la clave que se encuentra en el indice "GetKey"
+				Obtenemos el valor que se encuentra en el indice especificado con "IndexOfKey" 
+				Se ordena el Key automaticamente de forma ascendente 
+				Mantiene internamente dos matrices para almacenar los elementos de la lista. Cada elemento es un par clave/valor. Una clave no puede ser null, pero el valor puede ser null 
+				Add(), Contains(), ContainsValues(), Remove(), RemoveAt(), SetByIndex() 
+				SortedList<TKey, TValue>   
+				Internamente, SortedList<Tkey, Tvalue> mantiene dos objetos IList<T> internos, uno para el almacenamiento de claves y otro para el almacenamiento de valores las cuales se acceden mediante un objeto de la clase 
+				Metodos -> Add, Remove, RemoveAt, ContainsKey, clear, TryGetValue("Valor", out val)
+				Propiedades -> Count, Key, values 
+				KeyValuePair<KValue, TValue> para usar con foreach
+				  
+				
+				
+			StringDiccionary: 
+				Una tabla has con pares nombre/valor implementadas como cadenas de texto fuertemente tipadas 
+				
+			ListDiccionary: 
+				Un diccionario optimizado oara pequenas listas de objetos con alrededor de 10 elementos 
+				
+			HybrudDiccionary: 
+				Un diccionario que usa ListDiccionary para almacenamiento cuando el numero de elementos es pequeno y automaticmanete cambia a Hastable cuando la cantidad es mayor  
+				 
+	
+	
+	Las colecciones genericas, tienen la ventaja inmediata de la seguridad de tipos sin necesidad de derivar de un tipo de coleccion base ni de implementar miembros especificos de tipo
+		List<T> es la clase generica que se corresponde con ArrayList. 
+		Dictionary<TKey, Tvalue> y ConcurrentDictionary<Tkey, TValue> son las clases genericas que se correspoinden con Hastable 
+		Las clases genericas Queue<T>, ConcurrentQueue<T>, Stack<T>, ConcurrentStack<T> y SortedList<TKey, TValue> se corresponden con la respectivas clases no genericas de nombre 
 		
+	Tipos adicionales:
+		Hay varios tipos de colecciones genericas que no tiene un tipo homologo no generico. Entre esos tipos se incluyen los siguientes:
+			LinkedList<T> es una lista vinculada de uso general que proporciona operaciones de eliminacion e insercion 
+			SortedDictionary<TKey, TValue> es un diccionario ordenado con operaciones de elimincion e insercion, lo que lo convierte en una alternativa util a sortedList<TKey, TValue> 
+			List<T> Con un objeto de tipo interfaz, tendremos acceso a todos los miembros publicos de la interfaz. Es decir, tendremos acceso a todas las propiedades y metodos queesten definidos en la interfe. En este caso, instanciamos un objeto de tipo clases. Pro lo tanto tendremos acceso a todos los miembros de la interfaz IList<T>, en la definicion de la clase List<T> se implementa la interfaz IList<T> entre otras.
+				Add, clear, contains, insert, remove, sort, copacity, count, IndexOf, 
+			La diferencia de capacity y count es que capaciti se puede agregar valor esto nos permite darle un limite de valores al LIST
+			
+	Dictionary
+		Una clase Dictionary es una estructura de datos que representa una coleccion de llaves (KEY) y valores de par de datos (value) 
+		Dentro de las colecciones convencinales, su homonimo es el HashTable
+		No se pueden introducir dos entradas con el mismo valor en el key 
+			Podemos bucar un key utilizando su indice
+		Podemos acceder a las keys solamente mediante la propiedad Keys del dictionary y a los valores mediante la propiedad values 
+		Dictionary<TKey, TValue> 
+		Metodos -> Add, Remove, RemoveAt, ContainsKey, clear, TryGetValue("Valor", out val)
+		Propiedades -> Count, Key, values 
+		El diccionario puede ser utilizado como una matriz para acceder a sus elementos individuales. Es necesario especificar el KEY (no el indice) para obtener su valor  
+
+-------------------------------------------------------
+
+
+Herencia 
+	En C# cualquier dato es un objeto porque todos los tipos derivan implicitamente de este tipo, y "heredan" los metodos y campos definidos en dicha clase 
+	La herencia proporcian un mecanismo para definir una nueva clase, a partir de otra que ya existe, modificandola.
+	La nueva clase que se define, se denomina clase derivada y la clase de la que se "Hereda" se llama clase base.
+	Fundamentos de la herencia: Para indicar que una clase hereda de otra, se utiliza clase nueva : claseBase, La clase derivada "Hereda" todas los miembros de la clase base, es decir, tiene todos y cada uno de los miembros de la clase base y los que el programador desee añadir.
+	 Tipos de herencias:
+		Dependiendo del numero de clases y de como se relacionen, la herencia puede ser: 
+			Simple: 
+				Cuando solo se tiene una clase base de la cual hereda la clase derivada, hay herencia simple. 
+				La Herencia simple no excluye la posibilidad de que de una misma clase base se pueda derivar mas de una subclase o clase derivada 
+			multiple: 
+				No es admitida en C#, sin embargo algunos lenguajes de POO si la permiten 
+			de niveles multiples:
+				Se presenta cuando una clase derivada se usa como base para definir ot6ra clase derivada 
+				Es decir, existen diferentes niveles de herencia:
+					En el primero, la clase derivada hereda los miembros de una clase base, mientras que en el segundo, la clase derivada funcina a su ves como un clase base y de esta forma comparte con una tercera clase sus propios miembros y los que heredo 
+		Una clase derivada no puede acceder a variables y funciones privadas de su clase base 
+		Una clase base utiliza normalmente elementos protegidos en lugar de elementos privados 
+		Control de acceso a los miembros de la clase base (I)
+			Los modifcadores de acceso de los miembros de la superclase y de la subclase definen el encapsulamiento y el interfaz de la clase 
+			La forma de acceso a cada uno de los miembros heredados de la clase derivada, depende de los modificades de acceso que cada uno de dichos miembros tenga en la clase base 
+			Un miembro de la clase base declarado como Public, pasa a ser un miembro Public en la clase derivada 
+			Un miembro declarado como Private en la clase base aunque pertebnces a la clase derivada, no puede ser llamado ni desde propio codigo de la clase derivada ni, por supiesto desde ningun codigo exterior a sy clase 
+			Un miembro declarado como Protected, puede ser llamado desde el interior del codigo de la clase derivada pero no desde el exterior de dicha clase, es decir, los objetos de la clase derivada no pueden acceder a ellos 
+-----------------------------------------------------------------------			
+Clase abstractas y metodos virtuales 
+	Una clase abstracta es aquella que forzosamente se ha de derivar si se desea que se puedan crear objetos de la misma o acceder a sus miembros estaticos 
+	Para definir una clase abstracta se antepone obstract a su definicion 
+	Los metodos abstractos no tienen ninguna implementacion, de modo que la definicion de metodos va seguida por un punto y como en lugar de un bloque de metodo normal.
+	Las clases derivadas de la clase abstracta deben implementar tdas los metodos abstractos 
+	Cuando una clase abstracta hereda un metodo virtual de una clase base, la clase abstracta puede reemplazar el metodo virtual con un metodo abstracto
+	Clases abstractas con elementos abstractos 
+		Las clases abstractas pueden definir metodos y propiedades abstractas 
+		Los elementos abstractos NO proporcionan implementaciones, solo declaraciones 
+	Clase abstracta con elementos virtuales 
+		Podemos tambien cambiar dichas definicion en la clase hija. A este topo de metodos se les llama metodos vituales 
+	Metodos virtuales: Si en alguna clase hija quisiesemos dar una nueva definicion del <codigo> del metodo, simplemente lo volveremos a definir en la misma pero sistituyendo en su definicion la palabra reservada virtual por override 
+---------------------------------------------------------	
+Interface 
+	La interface es una alternaiva a una clase abstracta 
+	Un interface garantiza un determinado comportamiento de una clase o estructura 
+	Cuando una clase implementa una interface se garantiza que soportara los metodos, propiedades, eventos e indexadores de la interface.
+	Una interface es similar a una clase o a una estructura, pero sus miembros son abstractos, es decir no estan definidos, no tiene codigo.
+	Coche es un vehiculo, hereda las caracteristicas y comportamiento de un vehiculo, pero puede tener la capacidad de PoderRegularLaTemperatura(como una casa, por ejemplo)
+	Cuando se hereda, se hace referencia a lo que se es, y cuando se implementa una interface se hace referencia a la capacidad de "comportarse" de una determinada manera 
+	Una clase que herede de una interface debe implementar todas las definiciones contenidas en ella.
+	Los elementos de la interface no llevan los modificadores PUBLIC, VIRTUAL o OBSTRACT 
+	Todos los elementos declarados dentro de una interface se consideran publicos y abstractors,
+	Si la interface hereda a su vez de otras interfaces, entonces, despues del nombre de la interface se escribe dos puntos (:)
+	
+------------------------------------------------------------------------------------------
+Polimorfismo
+	Es la capacidad que tienen los objetos de una clase de responder al mismo mensaje o evento en funcion de los parametros utilizados durante su invocacion 
+	Es la habilidad que posee los objetos para reaccionar de modo diferente ante los mismos mensajes 
+	En C# el polimorfismo esta intimamente relacionado con la sobrecarga y metodos virtuales   
+	Elementos relacionados con el polimorfismo:
+		Sobrecarga (overload), Herencia, Sobre escritura (Overrude)
+	Tipos de polimorfismo:
+		Parametrico:
+			La sobrecarga representa diferentes maneras de realizar una misma accion
+			Una clase define varios metodos con el mismo nombre para diferente firma (sobrecarga)
+		Sobre Carga o proceso adoc:  
+			Diferentes clases tiene un metodo con el mismo nombre, pero comportamiento diferente 
+			Se aplica el metodo de acuerdo al objeto en que se trabaje  
+		Subtipo:
+			Propiedades y metodos pueden heredarse de una superclase. Si estas propiedades y metodos son re-definidos en la case derivada, se dice que han sido "sobrescritos" 
+	Diferencia de polimorfismo - sobrecarga 
+		Un metodo esta sobrecargado si dentro de una clase existen dos o mas declaraciones de dicho metodo con el mismo nombre pero con parametros distintos
+		La sobrecarga se resuelve en tiempo de compilacion utilizando los nombres de los metodos y los tipos de su parametros 
+		El polimorfismo se resuelve en tiempo de ejecucion del programa, esto es, mientras se ejecuta, en funcion  de la clase a la que pertenece el objeto   
+------------------------------------------------------------------------------		
+Leer y escribir datos locales
+	Clase IO 
+		BufferedStream: Inserta un capa de almacenamiento en buffer a las operaciones de lectura y escritura en otra secuencia.
+		FileStream: Dispone de un objeto strim al rededor de un archivo se admite operaciones de lectura de escritura sincrona y asincrona.
+		Stream: Dispone de una vista generica de una secuencia de bytes.
+		StreamReader: Permite incluir un textReader que leera los caracteres de una secuencia de bytes en una codificacion determinada.
+		StreamWrite: Dispone de un TextWrite para escribir los caracteres de una secuencia en una codificacion determinada.
+		StringReader: Dispone de un TextReader que lee en una cadena.
+		StringWrite: Dispone de un TextWrite para escribir informacion en una cadena. La informacion se almacena en el StringBuilder subyacente.
+		TextReader: Dispone de un lector que puede leer una serie secuencial de caracteres. 
+		TextWriter: Dispone de un sistema de escritura que puede escribir una seria secuencial de caracteres 
+	Almacenar datos locales 
+		Almacenar datos locales implica la utilizacion de un archivo fisico 
+		Dependiendo de las clases que utilicemos, la escritura o la lectura de datos sera legible o seran secuenciaas de flujos de bytes que no tiene representacion grafica.
+	Lectura/Escritura Caracteres 
+		Las clases TextReader y TextWriter, permite leer y escribir respectivamente, secuencias de caracteres 
+		El contenido de fichero sera legible y podremos leerlo desde cualquuier bloc de notas de windows 
+		La escritura de fichero podemos realizarla de forma secuencial (letra a letra) o en conjunto, todo el contenido a la vez 
+	Lectura/Escritura Caracteres secuenciales
+		Este es un fichero sin estructura, que se puede leer, en principio de forma secuencial. Para abrirlo, hay que pasarle al constructor de la clase, ademas del nombre de fichero los siguientes datos: 
+		Modo de apertura -> FileMode.Open, OpenOrCreate 
+		Tipo de acceso -> ReadWrite
+		Modo de compartir -> FileShare.Read 
+	Lectura/Escritura datos binarios 
+		Los ficheros binarios tiene la particularidad que los datos se encuentrar almacenados por bytes 
+		Trabajar con ficheros binarios require de un proceso un poco mayor, que con ficheros de texto.
+		La ventaja es que podemos almacenar cualquier tipo de informacion, desde cadenas de caracteres hasta imagenes o documentos.
+		Las clases encargadas del tratamineto de fichero binarios en .NET son BinaryReader, para lectura de los mismos y BinaryWrite para la escritura 
+		Las clases que contienen el nombre Stream, permiten la carga de datos en bytes, se podria decir que es dentro de .NET la encargada de generar buffers de bytes 
+------------------------------------------------------------------------------		
+
+  
+----------------------------------------------------------------------------------------------------- 
+Microprocesos e hilos 
+	Los multiprocesos e hilos implican el reparto de tareas de una misma aplicacion
+	Las tareas no se realizan de forma paralela, el procesador asigna un tiempo de procesamiento a cada tarea en funcion de su importancia
+		INTERLEAVING => se basa en prioridades de hilos y se dan en dos paralelismos 
+		Intercalamento con un solo procesador
+			Procesamiento logico 
+				Cuando un procesador es compartido por varios hilos 
+			Paralelismo fisico 
+				Cuando en un equipo de computo existe distintos procesamiento con multiples nucleos y el trabajo es descompuesto en tareas y cada tarea es ejecutada por un procesador independeintemente 
+				
+		Multiprocesos 
+			C# soporta la ejecucion paralela de codigo a travez de los multiprocesos (multithreading)
+			Un thread es un camino de ejecucion de codigo independiente capaz de ejecutarse simultaneamente junto a otros threads 
+			Una aplicacion C# comienza con unico hilo o thread creado automaticamente por el CLR del sistema operativo conocido como el hilo pricipal 
+			El espacio de nombres "System.Threading" alberga clases que permiten crear y controlar las tareas, principalmente mediante la clase "Thread" 
+			Se deben usar cuando una aplicacion debe gestionar varias tareas independeintes, como gestionar una interfaz de usuario o realizar un tratamiento de datos 
+			El delegate "ThreadStart" se emplea para crear un nuevo Thread. Su constructor toma como argumento la declaracion del metodo que se ejecutara en este nuevo Thread 
+		 Propiedades de los Threads 
+			Durante el cambio de contexto, el procesador elige el siguiente thread a ejecutar en funcion de sus prioridades
+			La propiedad priority de la clase Thread permite modificar esta propiedad relativa, con uno de los valores de la enumeracion 
+			ThreadPriority:
+				Highest		
+				Normal 
+				AboveNormal		
+				BelowNormal 	
+				Lowest
+				
+				
+	Notas:
+		Cuando se trabaja con hilos tomar en cuenta que muchas veces se va a generar una exepcion que es muy comun que se de, ya que al momento de trabajar con hilos si se esta trabajndo sobre paquetes o aplicaciones por separado tal como se da el ejemplo de la clase en windowsform aplication que utiliza paquetes para imprimir o mostrar interfaces el problema nace ya que la tarea que se esta ejecuta en segundo plano o en paralelo no tiene idea de los objetos o instancias que se ejecuta en la siguiente tarea por lo que no hay ninguna comunicacion entre los dos tal cual nos dice el error, aqui la operacion no es validad atraves de su proceso ya que se tuvo el acceso a un control que es progressbar desde un subproceso distinto al que se presento eso quiere decir que nuestro progressbar esta instanciado en un proceso muy diferente si queremos saber en que parte de codigo esta instanciado o siendo llamar nuestro progressbar podemos dirigirnos dentro de nuestro formulario al archivo form1.Disigner.cs al abrirlo podemos darnos cuenta que esta todo el codigo para contrurir los codigo que vemos en nuestros formulario. 
+		Para solicionar esto vamos a ver dos metodos muy utilizados 
+			dentro de donde ejecutamos nuestro hilo usar la clase CheckForIllegalCrossTheread pero ojo esta manera es indevidad ya que genera mucho errore a la larga 
+			Delegados: esto es mejor utilizarlo:
+				delagate void DelegateCambiarProgreso(int valor);
+				
+				private void CambiarProgreso(int valor){
+					if(this.InvokeRequered){
+						DelegateCambiarProgreso delegado = new DelegateCambiarProgreso(CambiarProgreso);
+						object[] parametro = new object[] { valor };
+						this.Invoke(delegate, parametro);
+					}else{
+						progressBar.Value = value;
+					}
+				}
+		
+-----------------------------------------------------------------------------------------------------
+	
+
+
+------------------------------------------------------------------------------------------------------------------------------
+LINQ 
+	Es una combinacion de extensiones al lengujae y librerias de codigo manejado que permite expresar de manera uniforme las consultas sobre colecciones de datos 
+	Sin importar la fuenta de datos que utiliza permite consultar informacion con tecnologia tan diferentes como ficheros XML base de datos relacionales o colecciones fuertemente tipadas 
+	Permite expresar las consultas sobre datos de diversa procedencia utilizando recursos de propio lenguaje de programacion 
+	Ventajas 
+		A la hora de expresar consultas, podremos aprovechar todas las facilidades que el complilador y el enterno integrado que LINQ nos permitira, como reducir en gran medida el fenomeno del "desajuste de impedancias".
+			desajuste de impedancias: Esto hace mension a la diferencia que existe entre los modelos relacionales bases de datos y los modelos conceptuales implementado en lenguajes de programacion orientado a objetos 
+	Arquitectura
+		Su arquitectura abierta hace posible la extensibilidad
+		La semantica de los operadores en las expresiones de consulta, no esta en modo alguno "cableada" en el lenguaje si no que puede ser modificada o extendidas por librerias de microsoft o terceros fabricante para el acceso de funte de datos especificas 
+	Mejoras del lenguaje C# que admite LINQ 
+		Expresiones de consulta
+		Variables con tipo implicito
+		Inicializadores de objetos 
+		Tipos anonimos
+		Metodos de extension 
+		Expresiones labda  
+	Mecanismos Linq 
+		Microsoft
+			LINQ to Array 
+			LINQ to object 
+			LINQ to XML 
+			LINQ to DataSets 
+			LINQ to SQL 
+		Otras fuentes de datos 
+			LINQ to Amazone 
+			LINQ to SharePoint 
+			
+		LINQ 
+			LINQ TO OBJECT 		-> Objeto en memoria
+			LINQ TO DATASET 	-> DATASET 
+			LINQ TO SQL 		-> BASE DE DATOS RELACIONALES 
+			LINQ TO ENTITIES	-> ENTIDADES ADO.NET 
+			LINQ TO XML 		-> DOCUMENTOS XML  
+		LINQ to SQL es una implementacion de O/RM que viene con .NET Framework y nos permite modelar base de datos relacionales con clases de .NET 
+		Podemos consultar bases de datos con LINQ, asi como:
+			Actualizar 
+			Añadir 
+			Borrar 
+------------------------------------------------------------------------------------------------------------------------------			
+Expresiones de consulta en LINQ 
+	Son el principal mecanismo mediante la cual cobra vida la tecnologia LINQ 
+	Son expresiones que reponden a una nueva sintaxxis que se ha añadido a C# 3.0 
+	Pueden actuar sobre cualquier objeto que implemente la interfaz generica IEnumerable<T>
+	Productos cartesianos 
+		El mismo concepto se puede aplicar en linq a la combinacion de dos secuencias 
+		Si se colocan dos clausulas from  (que actuan como generadoras) seguidas, para cada elemento de la primera secuencia se produciran todos los elementos de la segunda 
+	Restriccion de productos y optimizacion de consultas
+		Un tipo de producto cartesiano relativamente frecuente es el auto-producto, en el que combina una secuancia consigo misma 
+	Encuentros
+		Los encuentros son otra de las constucciones tipicas de los lenguajes relacionales como SQL que han sido incorporadas a las expresioanes de consulta de C# 3.0 
+		Es basicamente un producto cartesiano sobre dos secuancias limitada a las tuplas (t1, t2) en la que el valor de cuerta expresion aplicada al elemento de la primera secuancia t1 es igual al valor de otra expresion aplicada al elemento de la segunda tabla t2 
+	Diferencias con el producto cartesiano 
+		Hubieramos obtenido el mismo resultado  de antes ejecutando la siguiente consulta, basada en un producto cartesiano usando un WHERE 
+	LET
+		Esta clausula sirve como un mecanismo de conveniencia muy util en los casos en que necesitemos asignar, un nombre a un resultado intermedio para aprovecharlo mas adelante o ejecutar una sub consulta cuyo resultado necesitamos dentro de otr consulta  
 	
 	
 	
@@ -337,15 +616,5 @@ Existen dos tipos de coleccion:
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
+
