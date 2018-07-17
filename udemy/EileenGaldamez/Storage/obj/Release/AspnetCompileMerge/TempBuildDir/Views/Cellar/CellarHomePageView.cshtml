@@ -1,0 +1,55 @@
+﻿@model Storage.Models.Cellar.CellarViewModels
+<h1>@ViewBag.Title.</h1>
+@if (Model.Error.Error)
+{
+    @Html.Partial("_ModalError", Model.Error)
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Code</th>
+            <th>Product</th>
+            <th>Current Stock</th>
+            <th>Product Min</th>
+            <th>Product Max</th>
+            <th>Department</th>
+            <th>Detail</th>
+            <th>State</th>
+        </tr>
+        @{
+            int i = 1;
+            Bussines.Product.ProductBussines.GetProductRequest request = new Bussines.Product.ProductBussines.GetProductRequest();
+            Bussines.CellarAreaBussines.GetCellarAreaRequest requestCellar = new Bussines.CellarAreaBussines.GetCellarAreaRequest();
+            string code = "";
+            string name = "";
+            string nameCellarArea = "";
+            string min = "";
+        }
+        @foreach (var item in Model.CellarList)
+        {
+            {
+                request.ProductID = (int)item.idProduct;
+                requestCellar.CellarAreaID = (int)item.idcellarArea;
+                var datas = Bussines.Product.ProductBussines.Select.GetProduct(request).Product;
+                code = datas.code;
+                name = datas.name;
+                nameCellarArea = Bussines.CellarAreaBussines.Select.GetCellarArea(requestCellar).CellarArea.name;
+            }
+
+            <tr @min>
+                <td>@i</td>
+                <td>@code</td>
+                <td>@name</td>
+                <td>@item.amount</td>
+                <td>@item.Min</td>
+                <td>@item.Max</td>
+                <td>@nameCellarArea</td>
+                <td>@item.detail</td>
+                <td>@item.state</td>
+            </tr>
+    i++;
+}
+    </table>
+        }

@@ -1,0 +1,161 @@
+﻿@model Storage.Models.Cellar.CellarViewModels
+<h1>@ViewBag.Title.</h1>
+<h3>@ViewBag.Message</h3>
+@if (Model.Error.Error)
+{
+    @Html.Partial("_ModalError", Model.Error)
+}
+else
+{
+    <p><label class="ActionPop" data-url="@Url.Action("CellarCreate", new { CellarArea = @Model.GetCellarToArea })">Create New </label></p>
+    if (ViewBag.successful)
+    {
+        <div class="alert alert-success" role="alert"><label class="glyphicon glyphicon-ok"></label> @ViewBag.Message</div>
+    }
+
+
+    <ul class="nav nav-tabs">
+
+        @*@{string f2 = "";}
+        @foreach (var item in Bussines.CellarAreaBussines.Select.GetCellarAreaListMenu().MenuList)
+        {
+            if (f2 != item.Department)
+            {
+                <li role="presentation" @if (@item.CellarAreaID == @Model.GetCellarToArea) {  @(" class= active ")   ; }>
+                    @Html.ActionLink(@item.Department, "CellarView", new { CellarArea = item.CellarAreaID })
+                </li>
+            }
+            { f2 = item.Department; }
+        }*@
+
+        @foreach (var item in Bussines.CellarAreaBussines.Select.GetCellarAreaList().CellarAreaList)
+        {
+            <li role="presentation" @if (@item.id == @Model.GetCellarToArea) {  @(" class= active ")    ; }>
+                @Html.ActionLink(@item.name, "CellarView", new { CellarArea = item.id })
+            </li>
+        }
+    </ul>
+    <br>
+            <table class="table table-striped table-bordered datatable" id="tableInformation">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Code</th>
+                        <th>Product</th>
+                        <th>Stock</th>
+                        <th>Detail Stock</th>
+                        <th>Min</th>
+                        <th>Max</th>
+                        @*<th>Department</th>*@
+                        <th>Detail</th>
+                        <th>State</th>
+                        <th></th>
+                    </tr>
+                </thead><!-- table head -->
+                <tbody>
+
+                    @{
+                        Bussines.Product.ProductBussines.GetProductRequest request = new Bussines.Product.ProductBussines.GetProductRequest();
+                        Bussines.CellarAreaBussines.GetCellarAreaRequest requestCellar = new Bussines.CellarAreaBussines.GetCellarAreaRequest();
+                        Bussines.Transaction.TransactionTypeConditionDetailBussines.GetTransactionTypeConditionDetailRequest requestCondition = new Bussines.Transaction.TransactionTypeConditionDetailBussines.GetTransactionTypeConditionDetailRequest();
+
+                        int i = 1;
+                        string code = "";
+                        string name = "";
+                        string nameCellarArea = "";
+                        string min = "";
+                        string conditionInformation = "";
+                    }
+                    @foreach (var item in Model.CellarList)
+                    {
+                        {
+                            request.ProductID = (int)item.idProduct;
+                            requestCellar.CellarAreaID = (int)item.idcellarArea;
+                            var datas = Bussines.Product.ProductBussines.Select.GetProduct(request).Product;
+                            code = datas.code;
+                            name = datas.name;
+                            nameCellarArea = Bussines.CellarAreaBussines.Select.GetCellarArea(requestCellar).CellarArea.name;
+
+                            requestCondition.TransactionID = item.id;
+                            requestCondition.TransactionTypeID = 1;
+                            requestCondition.ConditionID = 0;
+                            var dataCondition = Bussines.Transaction.TransactionTypeConditionDetailBussines.Select.GetTransactionTypeConditionDetailListView(requestCondition).TransactionTypeConditionDetailList;
+                            conditionInformation = "";
+                            foreach (var itemCondition in dataCondition)
+                            {
+                                conditionInformation += (Model.ConditionProductList.Find(j => j.id == (int)itemCondition.idCondition).name) + ": " + itemCondition.amount + " ";
+                            }
+                        }
+
+
+                        if (item.amount < item.Min)
+                        {
+                            min = " style=color:#F70E0E;";
+                        }
+                        else if (item.amount > item.Max)
+                        {
+                            min = " style=color:#2DAB02;";
+                        }
+                        else
+                        {
+                            min = " style=color:#ff6600;";
+                        }
+                        <tr @min>
+
+                            <td>@i</td>
+                            <td>@code</td>
+                            <td>@name</td>
+                            <td>@item.amount</td>
+                            <td><button type="button" class="btn btn-info example" data-toggle="popover" title="Product Detail Information" data-content="@conditionInformation">Detail</button></td>
+                            <td>@item.Min</td>
+                            <td>@item.Max</td>
+                            @*<td>@nameCellarArea</td>*@
+                            <td>@item.detail</td>
+                            <td @if (@item.state == "Active") {  @(" style = color:green;")              ; } else { @(" style = color:red;")              ; }>@item.state</td>
+                            <td>
+                                <label class="ActionPop" data-url="@Url.Action("CellarNewCellar", new { AnchorTransactionID = item.id, TransactionTypeID = 1 })">
+                                    Inflow
+                                </label> |
+                                <label class="ActionPop" data-url="@Url.Action("CellarDetail", new { AnchorTransactionID = item.id, TransactionTypeID = 1 })">
+                                    Detail
+                                </label> |
+                                <label class="ActionPop" data-url="@Url.Action("CellarUpdate", new { id = item.id })">
+                                    Edit
+                                </label>
+                            </td>
+                        </tr>
+    i++;
+}
+                </tbody>
+            </table>
+
+            <p><label class="ActionPop" data-url="@Url.Action("CellarCreate", new { CellarArea = @Model.GetCellarToArea })">Create New </label></p>
+                        }
+
+
+
+<script>
+    $(function () {
+        $('.example').popover();
+    });
+
+    $(document).ready(function () {
+        $('#tableInformation').dataTable({
+            'aoColumns': [
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: true, bSortable: true },
+                  { sWidth: "35%", bSearchable: true, bSortable: true },
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "10%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "10%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: false, bSortable: true },
+                  { sWidth: "15%", bSearchable: false, bSortable: false }
+            ],
+            "info": true,
+            "paging": true
+        });
+    });
+</script>
+

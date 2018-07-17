@@ -1,0 +1,11 @@
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\Entity.dll.config
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\Entity.dll
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\Entity.pdb
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\EntityFramework.dll
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\EntityFramework.xml
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\obj\Debug\Entity.dll
+C:\Users\Darwin\Documents\Visual Studio 2015\Projects\EileenGaldamez\Entity\obj\Debug\Entity.pdb

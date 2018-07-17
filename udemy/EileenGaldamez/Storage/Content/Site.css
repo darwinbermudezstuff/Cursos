@@ -1,0 +1,76 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 30px;
+}
+
+h1 {
+    color: #224096;
+    font-size: 30px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/* Darwin Style To Site */
+
+.ActionPop {
+    cursor: pointer;
+    color: #2a6496;
+    font-weight:normal;
+}
+
+.navbar-default{
+    background-image: url("../../Content/Images/HSCMLog3.png");
+    background-repeat:repeat-x;
+    background-size: 167px !important;
+}
+
+.logo {
+    width: 165px;
+}
+
+.navbar-default .navbar-nav > li > a {
+color: #224096;
+font-weight: bold;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: transparent;
+}
+
+.rowLogin {
+        margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+
+}
+
+.child a {
+    color: #666 !important;
+
+}
+
+.father a {
+    font-weight: bold !important; 
+}
+
+

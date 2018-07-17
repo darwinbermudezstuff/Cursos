@@ -1,0 +1,11 @@
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\WcfService1.dll.config
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\WcfService1.dll
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\WcfService1.pdb
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\Bussines.dll
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\Data.dll
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\EntityFramework.dll
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\Bussines.pdb
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\Data.pdb
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\bin\EntityFramework.xml
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\obj\Debug\WcfService1.dll
+\\mac\home\documents\visual studio 2015\Projects\WcfService1\WcfService1\obj\Debug\WcfService1.pdb

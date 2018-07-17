@@ -183,10 +183,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="WCF\Empleados.svc.cs">
-      <DependentUpon>Empleados.svc</DependentUpon>
-    </Compile>
-    <Compile Include="WCF\IEmpleados.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -209,7 +205,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="WCF\Empleados.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -247,6 +242,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Estudiante\EstudianteView.cshtml" />
+    <Content Include="Views\Estudiante\EstidianteAdd.cshtml" />
+    <Content Include="Views\Estudiante\EstidianteEdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

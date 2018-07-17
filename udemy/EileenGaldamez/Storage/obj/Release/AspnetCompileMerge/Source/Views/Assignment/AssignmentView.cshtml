@@ -1,0 +1,161 @@
+﻿@model Storage.Models.Assignment.AssignmentViewModels
+
+
+
+
+<h1>@Model.GetCategoryName @Model.GetCategoryFaherName</h1>
+<h3>@ViewBag.Message</h3>
+@if (Model.Error.Error)
+{
+    @Html.Partial("_ModalError", Model.Error)
+}
+else
+{
+    if (ViewBag.successful)
+    {
+        <div class="alert alert-success" role="alert"><label class="glyphicon glyphicon-ok"></label> @ViewBag.Message</div>
+    }
+
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active">
+            @Html.ActionLink("InFlow", "AssignmentView",
+       new { controller = "Assignment", FatherCateogryID = Model.CategoryIDFhater, CategoryID = Model.CategoryID, CellarArea = Model.CellarArea })
+        </li>
+        <li role="presentation">
+            @Html.ActionLink("OutFlow", "DownloadView",
+       new { controller = "Download", FatherCateogryID = Model.CategoryIDFhater, CategoryID = Model.CategoryID, CellarArea = Model.CellarArea })
+
+        </li>
+        <li role="presentation">
+            @Html.ActionLink("Loan Product", "AssignmentView",
+       new { controller = "Assignment", FatherCateogryID = Model.CategoryIDFhater, CategoryID = Model.CategoryID, CellarArea = Model.CellarArea })
+        </li>
+    </ul>
+    
+    <p>
+        <label class="ActionPop" data-url="@Url.Action("AssignmentCreate", new { FatherCateogryID = Model.CategoryIDFhater , CategoryID = Model.CategoryID, CellarArea = Model.CellarArea})">Create News</label>
+    </p>
+    <table class="table table-striped table-bordered datatable" id="tableInformation">
+        <thead>
+
+            <tr>
+                <th>#</th>
+                <th>Code</th>
+                <th>Product</th>
+                <th>Stock</th>
+                <th>Detail Stock</th>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Employee</th>
+                <th>Detail</th>
+                <th>State</th>
+                <th></th>
+            </tr>
+        </thead><!-- table head -->
+        <tbody>
+
+            @{
+                int i = 1;
+                Bussines.Product.ProductBussines.GetProductRequest request = new Bussines.Product.ProductBussines.GetProductRequest();
+                Bussines.Employee.EmployeeBussines.GetEmployeeRequest requestEmployee = new Bussines.Employee.EmployeeBussines.GetEmployeeRequest();
+                Bussines.Transaction.TransactionTypeConditionDetailBussines.GetTransactionTypeConditionDetailRequest requestCondition = new Bussines.Transaction.TransactionTypeConditionDetailBussines.GetTransactionTypeConditionDetailRequest();
+
+                string code = "";
+                string name = "";
+                string nameEmployee = "";
+                string min = "";
+                string conditionInformation = "";
+            }
+            @foreach (var item in Model.AssignmentList)
+            {
+                {
+                    request.ProductID = (int)item.idProduct;
+                    requestEmployee.EmployeeID = (int)item.idEmployee;
+                    var datas = Bussines.Product.ProductBussines.Select.GetProduct(request).Product;
+                    code = datas.code;
+                    name = datas.name;
+                    var e = Bussines.Employee.EmployeeBussines.Select.GetEmployee(requestEmployee).Employee;
+                    nameEmployee = e.firstName + " " + e.lastName;
+
+                    requestCondition.TransactionID = item.id;
+                    requestCondition.TransactionTypeID = 2;
+                    requestCondition.ConditionID = 0;
+                    var dataCondition = Bussines.Transaction.TransactionTypeConditionDetailBussines.Select.GetTransactionTypeConditionDetailListView(requestCondition).TransactionTypeConditionDetailList;
+                    conditionInformation = "";
+                    foreach (var itemCondition in dataCondition)
+                    {
+                        conditionInformation += (Model.ConditionProductList.Find(j => j.id == (int)itemCondition.idCondition).name) + ": " + itemCondition.amount + " ";
+                    }
+                }
+
+
+                if (item.amount < item.Min)
+                {
+                    min = " style=color:#F70E0E;";
+                }
+                else if (item.amount > item.Max)
+                {
+                    min = " style=color:#2DAB02;";
+                }
+                else
+                {
+                    min = " style=color:#ff6600;";
+                }
+                <tr @min>
+
+                    <td>@i</td>
+                    <td>@code</td>
+                    <td>@name</td>
+                    <td>@item.amount</td>
+                    <td><button type="button" class="btn btn-info example" data-toggle="popover" title="Product Detail Information" data-content="@conditionInformation">Detail</button></td>
+                    <td>@item.Min</td>
+                    <td>@item.Max</td>
+                    <td>@nameEmployee</td>
+                    <td>@item.detail</td>
+                    <td @if (@item.state == "Active") {  @(" style = color:green;")    ; } else { @(" style = color:red;")    ; }>@item.state</td>
+                    <td>
+                        <label class="ActionPop" data-url="@Url.Action("AssignmentNewInflow", new { FatherCateogryID = Model.CategoryIDFhater , CategoryID = Model.CategoryID, CellarArea = Model.CellarArea, AnchorTransactionID = item.id, TransactionTypeID = 2 })">Inflow</label>
+                        <label class="ActionPop" data-url="@Url.Action("AssignmentDetail", new { AnchorTransactionID = item.id, TransactionTypeID = 2 })">Detail</label>
+                        <label class="ActionPop" data-url="@Url.Action("AssignmentUpdate", new { id = item.id, FatherCateogryID = Model.CategoryIDFhater, CategoryID = Model.CategoryID, CellarArea = Model.CellarArea })">Edit</label>
+                    </td>
+                </tr>
+    i++;
+}
+        </tbody>
+    </table>
+
+    <p><label class="ActionPop" data-url="@Url.Action("AssignmentCreate", new { FatherCateogryID = Model.CategoryIDFhater , CategoryID = Model.CategoryID, CellarArea = Model.CellarArea})">Create New</label></p>
+
+
+            }
+
+
+
+
+<script>
+    $(function () {
+        $('.example').popover();
+    });
+
+    $(document).ready(function () {
+        $('#tableInformation').dataTable({
+            'aoColumns': [
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: true, bSortable: true },
+                  { sWidth: "35%", bSearchable: true, bSortable: true },
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "10%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "10%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: false, bSortable: true },
+                  { sWidth: "5%", bSearchable: false, bSortable: true },
+                  { sWidth: "10%", bSearchable: false, bSortable: false }
+            ],
+            "info": true,
+            "paging": true
+        });
+    });
+</script>
+

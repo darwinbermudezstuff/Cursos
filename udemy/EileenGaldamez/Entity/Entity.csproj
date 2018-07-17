@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75698F65-C345-4014-9491-0D3A7CDA0660}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entity</RootNamespace>
+    <AssemblyName>Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HSCMModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HSCMModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HSCMModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HSCMModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HSCMModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SP_Product_SelectProduct_Result.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_SelectparameterNada_Result.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Selectparameter_Result.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_SelectTesting1withoutOut_Result.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_SelectTesting2Out_Result.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAssignment.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCategory.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCellar.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCellarArea.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblConditionProduct.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblContactInformation.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDownloadAssignment.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEmployee.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFileManager.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLoanAssignment.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLoanAssignmentFileManager.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProduct.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProductFileManager.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProductType.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProverContactInformation.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProvider.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTransaction.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTransactionConfigurate.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTransactionType.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTransactionTypeConditionDetail.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTypePermission.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserConfiguration.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserType.cs">
+      <DependentUpon>HSCMModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="HSCMModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HSCMModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="HSCMModel.edmx.diagram">
+      <DependentUpon>HSCMModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HSCMModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HSCMModel.edmx</DependentUpon>
+      <LastGenOutput>HSCMModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HSCMModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HSCMModel.edmx</DependentUpon>
+      <LastGenOutput>HSCMModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

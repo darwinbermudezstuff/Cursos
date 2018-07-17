@@ -1,0 +1,83 @@
+﻿@model Storage.Models.Download.DownloadAssignmentViewModels
+
+
+
+@{
+    Bussines.Product.ProductBussines.GetProductRequest request = new Bussines.Product.ProductBussines.GetProductRequest()
+    {
+        ProductID = (int)Model.Download.idProduct
+    };
+    var datas = Bussines.Product.ProductBussines.Select.GetProduct(request).Product;
+    string code = datas.code;
+    string name = datas.name;
+}
+@*<h1>
+    Detail - @name (@code)
+</h1>*@
+<h3>@ViewBag.Message</h3>
+
+@if (Model.Error.Error)
+{
+    @Html.Partial("_ModalError", Model.Error)
+}
+else
+{ <table class="table table-striped table-bordered datatable" id="tableInformation2">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Amount</th>
+                <th>Product Condition</th>
+                <th>Detail</th>
+                <th>Date In</th>
+            </tr>
+        </thead><!-- table head -->
+        <tbody>
+            @{
+                int i = 1;
+            }
+            @foreach (var item in Model.TransactionList)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@item.amount</td>
+                    <td>
+                        @foreach (var items in Model.ConditionProductList)
+                    {
+                        if (items.id == item.idConditionProduct)
+                        {
+                                @items.name
+                            }
+                        }
+                    </td>
+                    <td>@item.detail</td>
+                    <td>@item.createDate</td>
+                </tr>
+                i++;
+            }
+        </tbody>
+        <tr>
+            <th>Total</th>
+            <th colspan="4">@Model.total</th>
+        </tr>
+    </table>
+                }
+
+
+<script>
+
+
+    $(document).ready(function () {
+        $('#tableInformation2').dataTable({
+            'aoColumns': [
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "5%", bSearchable: true, bSortable: true },
+                  { sWidth: "35%", bSearchable: true, bSortable: true },
+                  { sWidth: "5%", bSearchable: false, bSortable: false },
+                  { sWidth: "10%", bSearchable: false, bSortable: false },
+            ],
+            "info": true,
+            "paging": true
+        });
+    });
+</script>
+

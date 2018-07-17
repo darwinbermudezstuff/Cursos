@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EileenGaldamezModelStoreContainer" CdmEntityContainer="EileenGaldamezEntities">
+    <EntitySetMapping Name="tblAssignment">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblAssignment">
+        <MappingFragment StoreEntitySet="tblAssignment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="loan" ColumnName="loan" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="min" ColumnName="min" />
+          <ScalarProperty Name="max" ColumnName="max" />
+          <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCategory">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblCategory">
+        <MappingFragment StoreEntitySet="tblCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+          <ScalarProperty Name="idCellarArea" ColumnName="idCellarArea" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCellar">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblCellar">
+        <MappingFragment StoreEntitySet="tblCellar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="idcellarArea" ColumnName="idcellarArea" />
+          <ScalarProperty Name="min" ColumnName="min" />
+          <ScalarProperty Name="max" ColumnName="max" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCellarArea">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblCellarArea">
+        <MappingFragment StoreEntitySet="tblCellarArea">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblConditionProduct">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblConditionProduct">
+        <MappingFragment StoreEntitySet="tblConditionProduct">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblContactInformation">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblContactInformation">
+        <MappingFragment StoreEntitySet="tblContactInformation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="cellPhone" ColumnName="cellPhone" />
+          <ScalarProperty Name="faxPhone" ColumnName="faxPhone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDownloadAssignment">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblDownloadAssignment">
+        <MappingFragment StoreEntitySet="tblDownloadAssignment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployee">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="idUserType" ColumnName="idUserType" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFileManager">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblFileManager">
+        <MappingFragment StoreEntitySet="tblFileManager">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="fileType" ColumnName="fileType" />
+          <ScalarProperty Name="fileSize" ColumnName="fileSize" />
+          <ScalarProperty Name="fileFile" ColumnName="fileFile" />
+          <ScalarProperty Name="fileDetail" ColumnName="fileDetail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLoanAssignment">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblLoanAssignment">
+        <MappingFragment StoreEntitySet="tblLoanAssignment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+          <ScalarProperty Name="stateProduct" ColumnName="stateProduct" />
+          <ScalarProperty Name="dateLoan" ColumnName="dateLoan" />
+          <ScalarProperty Name="detailLoan" ColumnName="detailLoan" />
+          <ScalarProperty Name="dateReturn" ColumnName="dateReturn" />
+          <ScalarProperty Name="detailReturn" ColumnName="detailReturn" />
+          <ScalarProperty Name="idAssignment" ColumnName="idAssignment" />
+          <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLoanAssignmentFileManager">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblLoanAssignmentFileManager">
+        <MappingFragment StoreEntitySet="tblLoanAssignmentFileManager">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idLoanAssignment" ColumnName="idLoanAssignment" />
+          <ScalarProperty Name="idFileManager" ColumnName="idFileManager" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProduct">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblProduct">
+        <MappingFragment StoreEntitySet="tblProduct">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="idProductType" ColumnName="idProductType" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductFileManager">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblProductFileManager">
+        <MappingFragment StoreEntitySet="tblProductFileManager">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="idFileManager" ColumnName="idFileManager" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductType">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblProductType">
+        <MappingFragment StoreEntitySet="tblProductType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProverContactInformation">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblProverContactInformation">
+        <MappingFragment StoreEntitySet="tblProverContactInformation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idProvider" ColumnName="idProvider" />
+          <ScalarProperty Name="idContactInformation" ColumnName="idContactInformation" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProvider">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblProvider">
+        <MappingFragment StoreEntitySet="tblProvider">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTransaction">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblTransaction">
+        <MappingFragment StoreEntitySet="tblTransaction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="idProvide" ColumnName="idProvide" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="idConditionProduct" ColumnName="idConditionProduct" />
+          <ScalarProperty Name="expeditionDate" ColumnName="expeditionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTransactionConfigurate">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblTransactionConfigurate">
+        <MappingFragment StoreEntitySet="tblTransactionConfigurate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idTransaction" ColumnName="idTransaction" />
+          <ScalarProperty Name="idTransactionType" ColumnName="idTransactionType" />
+          <ScalarProperty Name="idAnchorTransaction" ColumnName="idAnchorTransaction" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTransactionType">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblTransactionType">
+        <MappingFragment StoreEntitySet="tblTransactionType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTransactionTypeConditionDetail">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblTransactionTypeConditionDetail">
+        <MappingFragment StoreEntitySet="tblTransactionTypeConditionDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="idTransactionType" ColumnName="idTransactionType" />
+          <ScalarProperty Name="idTransactionAnchor" ColumnName="idTransactionAnchor" />
+          <ScalarProperty Name="idCondition" ColumnName="idCondition" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTypePermission">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblTypePermission">
+        <MappingFragment StoreEntitySet="tblTypePermission">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="numberLevel" ColumnName="numberLevel" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUser">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserConfiguration">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblUserConfiguration">
+        <MappingFragment StoreEntitySet="tblUserConfiguration">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idTypePermission" ColumnName="idTypePermission" />
+          <ScalarProperty Name="idCellarArea" ColumnName="idCellarArea" />
+          <ScalarProperty Name="idAssignmentType" ColumnName="idAssignmentType" />
+          <ScalarProperty Name="idAnchorAssignmentType" ColumnName="idAnchorAssignmentType" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserType">
+      <EntityTypeMapping TypeName="EileenGaldamezModel.tblUserType">
+        <MappingFragment StoreEntitySet="tblUserType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="upDateDate" ColumnName="upDateDate" />
+          <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_Product_SelectProduct" FunctionName="EileenGaldamezModel.Store.SP_Product_SelectProduct" />
+  </EntityContainerMapping>
+</Mapping>

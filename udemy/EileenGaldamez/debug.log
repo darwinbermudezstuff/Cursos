@@ -1,0 +1,7 @@
+[0926/155956:ERROR:process_info.cc(608)] range at 0xb11a3f8a00000000, size 0xec fully unreadable
+[0926/155957:ERROR:process_info.cc(608)] range at 0xb11a3fec00000000, size 0xec fully unreadable
+[0926/155957:ERROR:process_info.cc(608)] range at 0x0, size 0xec fully unreadable
+[0311/130849.698:ERROR:process_info.cc(608)] range at 0xbd8c484c00000000, size 0x66 fully unreadable
+[0311/130849.848:ERROR:process_info.cc(608)] range at 0xbd8c486c00000000, size 0x66 fully unreadable
+[0311/130849.848:ERROR:process_info.cc(608)] range at 0x0, size 0x66 fully unreadable
+[0311/130859.241:ERROR:http_transport_win.cc(50)] WinHttpSendRequest: No se pudo resolver el nombre de servidor o su dirección  (0x2EE7)

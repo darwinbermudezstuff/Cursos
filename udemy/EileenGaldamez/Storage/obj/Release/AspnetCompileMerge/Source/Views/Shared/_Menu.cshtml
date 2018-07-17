@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+}
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="~/">
+                <img src="~/Content/Images/HSCMLog2.png" class="logo" />
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @{ 
+                    string f2 = "";
+                    string hm = "<li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>";
+                    string hmthem = "<span class='caret'></span></a><ul class='dropdown-menu'><li class='subnavoptiondown father'>";
+                    string hmthemf = "</li>";
+                    string fin = "</ul></li>";
+                    int i = 0;
+                    int total = Bussines.CellarAreaBussines.Select.GetCellarAreaListMenu().MenuList.Count - 1;
+                    string min = "";
+                }
+                @foreach (var item in Bussines.CellarAreaBussines.Select.GetCellarAreaListMenu().MenuList)
+                {
+                    if (i == 0)
+                    {
+                        @Html.Raw(hm)
+                        @item.Department
+                        @Html.Raw(hmthem)
+                        @Html.ActionLink(item.Area, "AssignmentView", new { controller = "Assignment", FatherCateogryID = item.FatherCategoryID , CategoryID = item.CategoryID, CellarArea = item.CellarAreaID})
+                        @Html.Raw(hmthemf)
+                    }
+                    else if (f2 != item.Department)
+                    {
+                        @Html.Raw(fin)
+                        @Html.Raw(hm) 
+                        @item.Department 
+                        @Html.Raw(hmthem)
+                        @Html.ActionLink(item.Area, "AssignmentView", new { controller = "Assignment", FatherCateogryID = item.FatherCategoryID, CategoryID = item.CategoryID, CellarArea = item.CellarAreaID })
+
+                        @Html.Raw(hmthemf)
+                    }
+                    else
+                    {
+
+                        if (item.FatherCategoryID != 0)
+                        {
+                            min = " child";
+                        }
+                        else {
+                            min = " father";
+                        }
+
+                        <li class="subnavoptiondown @min">
+                            @Html.ActionLink(item.Area, "AssignmentView", 
+                           new { controller = "Assignment", FatherCateogryID = item.FatherCategoryID, CategoryID = item.CategoryID, CellarArea = item.CellarAreaID })
+                        </li>
+                    }
+                    { f2 = item.Department; }
+                    if (total == i)
+                    {
+                        @Html.Raw(fin)
+                    }
+                    i++;
+                }
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrator <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Users</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Users", "UserView", "User") </li>
+                        <li>@Html.ActionLink("Permission User", "UserPermissionView", "UserConfiguration") </li>
+                        <li>@Html.ActionLink("Employees", "EmployeeView", "Employee") </li>
+                        <li>@Html.ActionLink("Employee Type", "UserTypeView", "UserType") </li>
+
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Other</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Department", "cellarAreaView", "CellarArea")</li>
+                        <li>@Html.ActionLink("Area", "CategoryView", "Category") </li>
+                        <li>@Html.ActionLink("Supplier", "ProviderView", "Provider") </li>
+                        <li>@Html.ActionLink("Permission", "PermissionTypeView", "TypePermission") </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Product Registration", "productView", "Product") </li>
+                        <li>@Html.ActionLink("Products Type", "productTypeView", "ProductType") </li>
+                        <li>@Html.ActionLink("Product Condition", "ProductConditionView", "ConditionProduct") </li>
+                        <li>@Html.ActionLink("Product Assignation", "CellarView", "cellar") </li>
+                    </ul>
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+

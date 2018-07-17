@@ -1,0 +1,25 @@
+﻿<div class="modal fade" id="myModalAction" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on('click', '.ActionPop', function (e) {
+            $('#myModalAction').modal('show');
+            ActionResult($(this).data('url'));
+        });
+
+        function ActionResult(urlAction) {
+            var url = urlAction;
+            $.get(url, function (data) {
+                $('.modal-body').html(data);
+                $('SELECT').select2();
+            });
+        }
+    });
+</script>
